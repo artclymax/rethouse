@@ -1,0 +1,61 @@
+@use "../tools" as *;
+
+.section-gallery {
+	&__container {
+	}
+
+	&__slider {
+		position: relative;
+		width: 100%;
+	}
+}
+
+.gallery-swiper {
+	&__wrapper {
+	}
+
+	&__slide {
+	}
+
+	&__pagination {
+	}
+
+	&__btn {
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__prev {
+		left: -27px;
+		@include media($laptop-sm) {
+			left: 0;
+		}
+	}
+
+	&__next {
+		right: -27px;
+		@include media($laptop-sm) {
+			right: 0;
+		}
+	}
+}
+
+.gallery-item {
+	&__image-link {
+		@include flex-column;
+		height: 290px;
+		border-radius: 16px;
+		overflow: hidden;
+
+		img {
+			transition: all 0.3s;
+		}
+		@include hover {
+			img {
+				transform: scale(1.1);
+			}
+		}
+	}
+}

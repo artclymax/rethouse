@@ -1,0 +1,263 @@
+@use "../tools" as *;
+
+.header {
+	padding-top: 10px;
+
+	&__container {
+	}
+
+	&__body {
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		background: var(--color-white);
+		padding: 16px 30px;
+		border-radius: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: adapt(56, 16, $mobile);
+
+		@include media($tablet) {
+			border-bottom: 1px solid rgba(217, 217, 217, 0.4);
+			border-radius: 20px;
+			padding: 10px;
+			box-shadow: unset;
+		}
+	}
+
+	&__logo {
+		@include media($tablet) {
+			margin-right: auto;
+		}
+	}
+
+	&__menu {
+	}
+
+	&__phone-btn {
+	}
+
+	&__burger-btn {
+	}
+}
+.header-menu {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	gap: 12px;
+
+	@include media($tablet) {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+
+	&__contacts {
+		@include media($tablet) {
+			order: 3;
+			border-radius: 30px;
+			background: var(--color-white);
+			padding: 20px;
+		}
+	}
+
+	&__btn-box {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		justify-self: end;
+
+		@include media($tablet) {
+			justify-self: center;
+			flex-wrap: wrap;
+			gap: 12px 24px;
+			flex-direction: row-reverse;
+		}
+	}
+
+	&__btn {
+		padding: 6px 20px;
+		@include media($mobile) {
+		}
+		&::after {
+			display: none;
+		}
+
+		@include media($tablet) {
+			padding: 16px 32px;
+		}
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__main-menu {
+		grid-column: 1/-1;
+		padding-top: 12px;
+		@include media($tablet, min) {
+			border-top: 1px solid var(--color-gray-bd);
+		}
+	}
+}
+.header-contacts {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	@include media($mobile) {
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+	.icon {
+		--width: 24px;
+		gap: 8px;
+	}
+	&__block {
+		flex: 1;
+
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__address {
+		@include text-small;
+		font-style: normal;
+	}
+
+	&__phones {
+	}
+}
+
+.contacts-box {
+	&__list {
+	}
+
+	&__subitem {
+	}
+
+	&__link {
+	}
+
+	&__sublist {
+	}
+}
+.link {
+}
+.messengers {
+	&__item {
+	}
+
+	&__link {
+	}
+}
+.link-icon {
+}
+.btn {
+}
+.btn--accent {
+}
+.phone-btn {
+}
+.visible-tablet {
+}
+.burger-btn {
+}
+.wishlist-menu {
+	@include reset-list;
+	color: var(--color-gray-wishlist);
+	@include media($mobile) {
+		flex: 1 1 100%;
+	}
+	li {
+	}
+	a {
+		@include reset-link;
+		@include text-btn;
+		border: 1px solid #fae013;
+		border-radius: 30px;
+		padding: 6px 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 4px;
+		transition: all 0.3s;
+		&::after {
+			content: "Подборка";
+			order: 2;
+		}
+		&::before {
+			content: "";
+			flex-shrink: 0;
+			@include square(18px);
+			@include bgimg(url("../../../public/images/icons/wishlist.svg"));
+		}
+
+		@include hover {
+			box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+			background: var(--color-light-bg);
+		}
+
+		@include media($tablet) {
+			padding: 16px 32px;
+		}
+	}
+	.woosw-menu-item-inner {
+		font-size: 0;
+		order: 3;
+		flex-shrink: 0;
+		&::after {
+			@include label;
+			position: relative;
+			top: unset;
+			right: unset;
+			@include square(18px);
+			text-align: center;
+			@include flex-center;
+			background: var(--color-yellow);
+		}
+	}
+}
+
+.wishlist-mobile-btn {
+	@include reset-list;
+	color: var(--color-gray-wishlist);
+	a {
+		position: relative;
+		@include reset-link;
+		@include text-btn;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s;
+		@include square(32px);
+		border: 1px solid var(--color-yellow);
+		background: var(--color-0);
+		border-radius: 8px;
+		&::before {
+			content: "";
+			flex-shrink: 0;
+			@include square(18px);
+			@include bgimg(url("../../../public/images/icons/wishlist.svg"));
+		}
+
+		@include hover {
+			box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+			background: var(--color-light-bg);
+		}
+	}
+	.woosw-menu-item-inner {
+		font-size: 0;
+		order: 3;
+		flex-shrink: 0;
+		position: absolute;
+		top: -8px;
+		right: -8px;
+		&::after {
+			@include label;
+			position: relative;
+			top: unset;
+			right: unset;
+			@include square(18px);
+			text-align: center;
+			@include flex-center;
+			background: var(--color-yellow);
+		}
+	}
+}

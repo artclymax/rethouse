@@ -1,0 +1,72 @@
+@use "../tools" as *;
+
+.about-media {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px;
+		
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__media-box {
+		box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.25);
+		border-radius: 16px;
+		overflow: hidden;
+		height: adapt(460, 266);
+		position: relative;
+		@include flex-column;
+		justify-content: flex-end;
+	}
+
+	&__image-link {
+		@include flex-column;
+		width: 100%;
+		height: 100%;
+		@include image-abs;
+		overflow: hidden;
+		.about-media__image-link {
+		}
+
+		@include hover {
+			&::before {
+				transform: translate(-50%, -50%) scale(1.1);
+			}
+		}
+		&--video {
+			&::before {
+				content: "";
+				position: absolute;
+				z-index: 2;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				@include square(54px);
+				border-radius: 50%;
+				background-color: var(--color-white);
+				@include bgimg(url("../../../public/icons/play.svg"), 16px);
+				transition: all 0.3s;
+			}
+		}
+	}
+
+	&__note {
+		position: relative;
+		z-index: 5;
+		background: linear-gradient(
+			0deg,
+			rgba(255, 255, 255, 0.64) 0%,
+			rgba(255, 255, 255, 0.48) 50%,
+			rgba(255, 255, 255, 0) 100%
+		);
+		backdrop-filter: blur(6px);
+		padding: adapt(16, 10) adapt(20, 10);
+		color: var(--color-dark);
+
+		@include media($mobile) {
+			@include text-small;
+		}
+	}
+}

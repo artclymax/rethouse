@@ -1,0 +1,86 @@
+@use "../tools" as *;
+
+.page-breadcrumbs,
+.woocommerce-breadcrumb {
+	--bc-gap: 10px;
+	--bc-current-color: var(--color-gray);
+	--bc-link-color: var(--color-gray);
+
+	@include text-small;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--bc-gap);
+	color: var(--bc-current-color);
+
+	& > span {
+		display: flex;
+		align-items: center;
+		gap: var(--bc-gap);
+
+		&:not(:last-child) {
+			&::after {
+				display: inline-flex;
+				content: "";
+				@include square(10px);
+				@include bgimg(url("../../../public/images/icons/breadcrumbs-arrow.svg"));
+			}
+		}
+
+		a {
+			display: inline-flex;
+			color: inherit;
+			text-decoration: none;
+			transition: all 0.3s;
+			@include hover-link;
+		}
+	}
+	& > a {
+		display: inline-flex;
+		color: inherit;
+		text-decoration: none;
+		transition: all 0.3s;
+		opacity: 1 !important;
+		@include hover-link;
+	}
+	.current-item {
+		//color: var(--white-100);
+	}
+}
+
+.smart-breadcrumbs {
+	--bc-gap: 12px;
+	--bc-current-color: var(--color-gray-text);
+	--bc-link-color: var(--color-gray-text);
+
+	ol,
+	ul {
+		@include reset-list;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--bc-gap);
+		font-size: 14px;
+		color: var(--bc-current-color);
+		font-weight: 400;
+	}
+	li {
+		display: flex;
+		align-items: center;
+		gap: var(--bc-gap);
+		&:not(:last-child) {
+			&::after {
+				display: inline-flex;
+				content: "/";
+				//@include square(16px);
+				//@include bgimg(url("../../../public/images/icons/breadcrumbs-arrow.svg"));
+			}
+		}
+	}
+	a {
+		@include reset-link;
+		color: var(--bc-link-color);
+
+		@include hover-link;
+	}
+	.breadcrumb-separator {
+	}
+}

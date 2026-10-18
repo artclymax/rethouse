@@ -1,0 +1,63 @@
+@use "../tools" as *;
+
+.section-catalog {
+	&__container {
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(32, 20);
+		align-items: flex-start;
+	}
+
+	&__btn {
+	}
+
+	&__note {
+		color: var(--color-gray);
+	}
+
+	&__grid {
+		--min: 180px;
+		gap: adapt(24, 8, $mobile);
+		@include media($mobile) {
+			--min: 160px;
+		}
+	}
+
+	&__card {
+	}
+}
+
+.catalog-card {
+	@include flex-column;
+	&__link-wrapper {
+		@include reset-link;
+		@include flex-column;
+		gap: 10px;
+		padding-bottom: 16px;
+		height: 100%;
+		transition: all 0.3s;
+		@include hover {
+			transform: translateY(-6px);
+			.catalog-card__image {
+				img {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+	&__image {
+		min-height: adapt(160, 146, $mobile);
+		border-radius: 16px;
+		overflow: hidden;
+		img {
+			transition: all 0.3s;
+		}
+	}
+
+	&__title {
+	}
+}
+

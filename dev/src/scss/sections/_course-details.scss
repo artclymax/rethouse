@@ -1,0 +1,90 @@
+@use "../tools" as *;
+
+.course-details {
+	&__container {
+	}
+
+	&__list {
+		@include reset-list;
+
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 16px 0;
+
+		background: var(--color-white);
+		border-radius: 30px;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		padding: adapt(24, 12) adapt(24, 10);
+
+		@include media($tablet) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__item {
+	}
+}
+
+.course-details-item {
+	padding-inline: adapt(20, 4);
+
+	display: flex;
+	align-items: center;
+	gap: adapt(16, 7);
+
+	position: relative;
+	--width: 32px;
+	
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 1px;
+		height: 100%;
+		background: var(--color-gray-bd);
+	}
+
+	&:first-child {
+		padding-left: 0;
+	}
+
+	&:last-child {
+		padding-right: 0;
+
+		&::after {
+			display: none;
+		}
+	}
+
+	&:nth-child(even) {
+		@include media($tablet) {
+			&::after {
+				display: none;
+			}
+
+			padding-right: 0;
+		}
+	}
+
+	&:nth-child(odd) {
+		@include media($tablet) {
+			padding-left: 0;
+		}
+	}
+
+	&__content {
+	}
+
+	&__title {
+		color: var(--color-dark);
+
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+}

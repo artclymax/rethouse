@@ -1,0 +1,55 @@
+@use "../tools" as *;
+
+.resident-cta {
+	padding-bottom: var(--section-padding);
+	&__container {
+	}
+
+	&__body {
+		position: relative;
+		z-index: 1;
+		padding: adapt(54, 20) adapt(54, 10);
+		border-radius: adapt(60, 30);
+		overflow: hidden;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__title {
+	
+	}
+
+	&__box {
+		display: flex;
+		align-items: center;
+		gap: 24px adapt(64, 24, $tablet);
+		@include media($mobile) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__descr {
+		flex: 0 1 563px;
+
+	}
+
+	&__btn {
+		flex: 0 1 360px;
+		flex-shrink: 0;
+		max-width: 360px;
+		@include media($mobile) {
+			flex: 1 1 100%;
+			max-width: unset;
+		}
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+		--object-pos: left center;
+	}
+}

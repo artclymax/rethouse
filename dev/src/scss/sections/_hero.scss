@@ -1,0 +1,224 @@
+@use "../tools" as *;
+
+.home-hero {
+	padding-top: adapt(38, 20, $mobile);
+	padding-bottom: var(--section-padding-05);
+	&__container {
+		@include flex-column;
+		gap: adapt(48, 24);
+	}
+
+	&__wrapper {
+		display: grid;
+		align-items: center;
+		gap: 24px;
+
+		.hero-page & {
+			align-items: start;
+		}
+
+		@include media($tablet, min) {
+			grid-template-columns: repeat(12, 1fr);
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(32, 24);
+		align-items: start;
+		@include media($tablet, min) {
+			grid-column: span 5;
+			.hero-page-no-image & {
+				grid-column: 1 / -1;
+			}
+		}
+	}
+	.section-header {
+		--gap: #{adapt(24, 20, $mobile)};
+	}
+	&__btn-box {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px adapt(24, 12, $tablet);
+
+		@include media($mobile) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__btn {
+		flex: 1;
+		.hero-page-education & {
+			padding-inline: 40px;
+		}
+		[id="home-hero"] & {
+			flex: initial;
+		}
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__image {
+		height: 100%;
+		min-height: adapt(570, 320);
+		overflow: hidden;
+		border-radius: adapt(80, 60, $mobile);
+
+		@include media($tablet, min) {
+			grid-column: span 7;
+		}
+	}
+
+	&__benefits {
+		--min: 258px;
+		gap: adapt(30, 20, $mobile);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+			gap: 30px;
+		}
+	}
+
+	&__benefit-item {
+	}
+
+	&__media {
+		position: relative;
+	}
+
+	&__logo {
+		position: absolute;
+		bottom: adapt(44, 20);
+		left: adapt(44, 20);
+		border-radius: 30px;
+		width: 200px;
+		overflow: hidden;
+		height: 84px;
+		background: var(--color-white);
+		--object-fit: contain;
+		@include media($mobile) {
+			border-radius: 40px;
+		}
+		img {
+			width: 100%;
+			height: 90%;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
+
+.home-hero-benefit-item {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	position: relative;
+	&:not(:last-child) {
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			transform: translateX(adapt(15, 10, $mobile));
+			background: var(--color-gray-bd);
+			height: 100%;
+			width: 1px;
+
+			@include media($mobile) {
+				width: 100%;
+				height: 1px;
+				transform: translateY(15px);
+			}
+		}
+	}
+	&__icon {
+		flex-shrink: 0;
+		@include square(54px);
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 4px;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+
+	&__materials {
+	}
+}
+
+.hero-page {
+	.section-header {
+		&__title {
+			* {
+				margin-block: 0.5em;
+				line-height: 1;
+			}
+			@include reset-child;
+			em {
+				font: inherit;
+				@include title-3;
+			}
+		}
+	}
+	.home-hero__image {
+		min-height: adapt(400, 200, $mobile);
+	}
+}
+.hero-materials {
+	@include reset-list;
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+
+	&__item {
+		border: 1px solid var(--color-gray-bd);
+		border-radius: 60px;
+		padding: 6px 32px;
+		background: var(--color-light-2);
+
+		.hero-page-education & {
+			border-color: var(--color-yellow);
+			font-size: 10px;
+			padding: 6px 12px;
+		}
+	}
+}
+
+.hero-page-resident {
+	.home-hero__btn-box {
+		max-width: max-content;
+		flex-direction: column;
+		align-items: start;
+		@include media($mobile-sm) {
+			max-width: 100%;
+			width: 100%;
+		}
+		& > * {
+			flex-grow: 1;
+			width: 100%;
+		}
+	}
+}
+
+.hero-404 {
+	@include media($mobile) {
+		padding-block: var(--section-padding);
+	}
+	.home-hero__wrapper {
+		align-items: center;
+	}
+}

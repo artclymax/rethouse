@@ -1,0 +1,39 @@
+@use "../tools" as *;
+
+.visit-benefits {
+	&__list {
+		--min: 384px;
+		gap: adapt(24, 16, $mobile);
+
+		@include media($tablet) {
+			--min: 340px;
+		}
+	}
+	&__item {
+	}
+}
+
+.visit-benefits-item {
+	display: grid;
+	grid-template-columns: 1fr 1.1fr;
+	align-items: center;
+	gap: 10px;
+
+	&__image {
+		height: adapt(230, 186);
+		border-radius: 16px;
+		overflow: hidden;
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 4px;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+}

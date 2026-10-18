@@ -1,0 +1,16 @@
+@use "../tools" as *;
+
+.section-header {
+	--gap: #{adapt(20, 10, $mobile)};
+	@include flex-column;
+	gap: var(--gap);
+	
+	&__label {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+}

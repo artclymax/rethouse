@@ -1,0 +1,54 @@
+@use "../tools" as *;
+
+.wishlist-cta-section {
+	&__container {
+	}
+
+	&__wrapper {
+		position: relative;
+		border-radius: adapt(60, 30);
+		padding: adapt(54, 20) adapt(54, 10);
+		overflow: hidden;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__title {
+	}
+
+	&__box {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+
+	&__descr {
+		flex: 1;
+	}
+
+	&__btn {
+		flex-shrink: 0;
+	}
+
+	&__image {
+		--gradient: linear-gradient(
+			190.14deg,
+			rgba(253, 250, 246, 0.8) 30.17%,
+			rgba(253, 250, 246, 0.6) 51.78%,
+			rgba(253, 250, 246, 0) 69.12%
+		);
+		@include image-abs;
+		z-index: -1;
+		@include overlay(var(--gradient), 1);
+		--object-pos: bottom left;
+		img {
+			
+		}
+	}
+}

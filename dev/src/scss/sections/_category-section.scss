@@ -1,0 +1,59 @@
+@use "../tools" as *;
+
+.category-section {
+	margin-block: var(--section-padding-05);
+	position: relative;
+	overflow: hidden;
+	border-radius: 60px;
+	@include media($mobile) {
+		padding-block: 10px;
+	}
+	&__container {
+	}
+
+	&__wrapper {
+		padding: adapt(42, 20);
+		@include media($mobile) {
+			border-radius: 52px;
+		}
+	}
+
+	&__list {
+	}
+
+	&__btn {
+		align-self: center;
+		max-width: 360px;
+		width: 100%;
+		@include media($mobile) {
+			max-width: initial;
+		}
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+	}
+
+	.shop-category {
+		&__list {
+			overflow-y: auto;
+			gap: adapt(10, 8);
+		}
+
+		&__item {
+			&:not(:last-child) {
+				padding-right: adapt(10, 8);
+			}
+		}
+
+		&__link {
+		}
+
+		&__icon {
+		}
+
+		&__title {
+		}
+	}
+}

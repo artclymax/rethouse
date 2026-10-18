@@ -1,0 +1,260 @@
+@use "../tools" as *;
+
+.contacts-cta {
+	padding-top: 0;
+	padding-bottom: var(--section-padding);
+
+	&__container {
+	}
+	&__contacts-list-box {
+		&:not(:last-child) {
+			margin-bottom: 24px;
+
+			@include media($mobile) {
+				margin-bottom: 44px;
+			}
+		}
+	}
+	&__body {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+
+		&:not(:last-child) {
+			margin-bottom: 24px;
+
+			@include media($mobile) {
+				margin-bottom: 44px;
+			}
+		}
+
+		@include media($mobile) {
+			flex-direction: column;
+			align-items: normal;
+		}
+	}
+
+	&__map {
+		border-radius: adapt(60, 30);
+		flex: 0 1 calc(50% - 12px);
+		height: adapt(435, 400);
+		overflow: hidden;
+		@include media($mobile) {
+			flex: unset;
+		}
+
+		iframe {
+			border: none;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__scenarios {
+		flex: 0 1 calc(50% - 12px);
+	}
+
+	&__socials {
+	}
+}
+
+.scenarios {
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__list {
+		@include reset-list;
+
+		@include flex-column;
+		gap: adapt(16, 12);
+	}
+
+	&__item {
+	}
+}
+
+.scenarios-item {
+	&__link-wrapper {
+		border-radius: 30px;
+		background: var(--color-white);
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		text-decoration: none;
+		color: inherit;
+
+		display: flex;
+		align-items: center;
+		gap: 16px;
+
+		padding: 16px;
+		transition: all 0.3s;
+		@include hover {
+			transform: translateY(-4px);
+			.scenarios-item__text {
+				&::after {
+					transform: translateX(4px);
+				}
+			}
+		}
+	}
+
+	&__icon {
+		@include square(32px);
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	&__text {
+		color: var(--color-dark);
+		flex-grow: 1;
+		justify-content: space-between;
+
+		--width: 16px;
+		gap: 16px;
+
+		&::after {
+			transition: all 0.3s;
+		}
+	}
+}
+
+.socials {
+	border-radius: 30px;
+	background: var(--color-white);
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	padding: adapt(24, 12) adapt(24, 10);
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px 16px;
+
+	@include media($mobile) {
+		flex-direction: column;
+		align-items: normal;
+	}
+
+	&__header {
+		flex: 0 1 calc(100% - 350px - 16px);
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: adapt(16, 10);
+		}
+	}
+
+	&__descr {
+	}
+
+	&__list {
+		//flex: 0 1 350px;
+
+		@include media($mobile) {
+			flex: unset;
+		}
+	}
+}
+
+.contacts-list-box {
+	--min: 280px;
+	gap: adapt(24, 12, $mobile);
+
+	&__card {
+		@include card-box;
+		border-radius: 30px;
+		padding: adapt(16, 12) adapt(16, 10);
+		align-items: start;
+		--width: 32px;
+		gap: adapt(16, 8);
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 4px;
+		@include text-btn;
+	}
+
+	&__title {
+		@include reset;
+		color: var(--color-gray);
+	}
+
+	&__descr {
+		font-style: normal;
+	}
+
+	&__list {
+		@include reset-list;
+		@include text-btn;
+		@include flex-column;
+		gap: 4px;
+	}
+
+	&__item {
+		@include flex-column;
+		gap: 4px;
+
+		@include media($mobile-sm) {
+			flex-direction: row;
+			gap: 16px;
+			align-items: center;
+		}
+	}
+
+	&__link {
+	}
+
+	&__sublist {
+	}
+}
+
+.social-links {
+	@include reset-list;
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex-wrap: wrap;
+
+	&__item {
+	}
+
+	&__link {
+		display: flex;
+		@include square(28px);
+	}
+}
+.socials-list-cards {
+	@include reset-list;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px;
+
+	&__item {
+	}
+
+	&__link {
+		@include reset-link;
+		@include card-box;
+		padding: adapt(16, 12) adapt(16, 10);
+		background: var(--color-white);
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		transition: all 0.3s;
+
+		@include hover {
+			transform: translateY(-4px);
+		}
+	}
+
+	&__icon {
+	}
+
+	&__text {
+		font-weight: 700;
+	}
+}

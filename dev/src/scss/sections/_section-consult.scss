@@ -1,0 +1,75 @@
+@use "../tools" as *;
+
+.consult-section {
+	&__container {
+		display: grid;
+		align-items: center;
+		gap: 24px;
+		@include media($mobile, min) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		border-radius: 30px;
+		overflow: hidden;
+		min-height: adapt(500, 290, $mobile);
+
+		@include media($mobile) {
+			border-radius: 60px;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(32, 24);
+		align-items: flex-start;
+	}
+	&__inner {
+		@include flex-column;
+		gap: adapt(20, 12);
+	}
+	&__list {
+	}
+
+	&__meta {
+	}
+
+	&__btn {
+	}
+}
+.check-list {
+	@include reset-list;
+	@include flex-column;
+	gap: 8px;
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		&::before {
+			content: "";
+			flex-shrink: 0;
+			@include square(24px);
+			@include bgimg(url("../../../public/images/icons/check.svg"));
+		}
+	}
+}
+.meta-row {
+	display: flex;
+	align-items: center;
+	gap: 12px 20px;
+	flex-wrap: wrap;
+
+	&__item {
+	}
+}
+.meta-item {
+	align-items: center;
+	--width: 20px;
+	gap: 8px;
+	color: var(--color-dark-gray);
+	&__text {
+	}
+}

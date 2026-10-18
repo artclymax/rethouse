@@ -1,0 +1,48 @@
+@use "../tools" as *;
+
+.consultation-form {
+	&__container {
+	}
+
+	&__wrapper {
+		padding: adapt(54, 20) adapt(54, 10);
+		border-radius: adapt(60, 30);
+		overflow: hidden;
+		position: relative;
+	}
+
+	&__content {
+		display: grid;
+		align-items: start;
+		grid-template-columns: 1fr 1.2fr;
+		gap: 24px adapt(64, 24, $tablet);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__form {
+	}
+
+	&__image {
+		--gradient: linear-gradient(
+			190.14deg,
+			rgba(253, 250, 246, 0.8) 17.1%,
+			rgba(253, 250, 246, 0.6) 49.22%,
+			rgba(253, 250, 246, 0) 75.01%
+		);
+		--gradient-mobile: linear-gradient(
+			190.14deg,
+			rgba(253, 250, 246, 0.8) 12.98%,
+			rgba(253, 250, 246, 0.6) 48.42%,
+			rgba(253, 250, 246, 0) 76.87%
+		);
+		@include image-abs;
+		z-index: -1;
+		@include overlay(var(--gradient), 1);
+		@include media($mobile) {
+			@include overlay(var(--gradient-mobile), 1);
+		}
+	}
+}

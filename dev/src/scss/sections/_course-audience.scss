@@ -1,0 +1,43 @@
+@use "../tools" as *;
+
+.course-audience {
+
+	&__container {
+	}
+
+	&__list {
+		--min: 282px;
+		--gap: 20px 24px;
+	}
+
+	&__item {
+	}
+}
+
+.course-audience-item {
+	display: flex;
+	gap: 8px;
+
+	border-radius: 16px;
+	background: var(--color-gray-bd);
+	padding: adapt(20, 10);
+
+	&__icon {
+		@include square(48px);
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	&__content {
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+}

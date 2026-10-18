@@ -1,0 +1,119 @@
+@use "../tools" as *;
+
+.form-select {
+	display: none;
+}
+.custom-select {
+	position: relative;
+	&.custom-select-active::before {
+		opacity: 1;
+	}
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: var(--color-white);
+		border: 1px solid var(--color-gray-bd);
+		border-bottom: none;
+		z-index: 1;
+		border-radius: 27px 27px 0 0;
+		opacity: 0;
+		transition: all 0.3s;
+	}
+
+	&__select-field {
+		@include reset;
+		text-align: left;
+		border: none;
+		background: var(--color-0);
+		width: 100%;
+
+		//================
+		position: relative;
+		z-index: 2;
+		@include text-btn;
+		border: 1px solid var(--color-input-bd);
+		border-radius: 60px;
+		padding: 16px 20px;
+		background: var(--color-0);
+
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		justify-content: space-between;
+		.form-wrapper--input-white & {
+			background: var(--color-white);
+		}
+		&::after {
+			content: "";
+			flex-shrink: 0;
+			@include square(16px);
+			border-radius: 50%;
+			background-color: var(--color-0);
+			@include bgimg(url("../../../public/icons/select-icon.svg"), 16px);
+			transition: all 0.3s;
+
+			.custom-select-active & {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		border: 1px solid var(--color-gray-bd);
+		border-top: none;
+		background: var(--color-white);
+		border-radius: 0 0 27px 27px;
+		position: absolute;
+		z-index: 5;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		max-height: 200px;
+		overflow: auto;
+		transform: translateY(80%);
+		transition: all 0.3s;
+		opacity: 0;
+		pointer-events: none;
+		visibility: hidden;
+		.custom-select-active & {
+			transform: translateY(100%);
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	}
+
+	&__item {
+		&:not(:last-child) {
+			//border-bottom: 1px solid var(--color-gray);
+		}
+	}
+
+	&__btn {
+		@include reset;
+		text-align: left;
+		border: none;
+		background: var(--color-0);
+		width: 100%;
+		//================
+		@include text-btn;
+		padding: 8px 20px;
+		transition: all 0.3s;
+
+		&.active {
+			background: var(--color-gray-bd);
+		}
+
+		@include hover {
+			background: var(--color-gray-bd);
+		}
+	}
+}
+.custom-select-active {
+}

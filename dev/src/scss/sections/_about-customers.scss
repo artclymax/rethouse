@@ -1,0 +1,86 @@
+@use "../tools" as *;
+
+.customers {
+	&__container {
+		.section-header {
+
+			&:not(:last-child) {
+				margin-bottom: adapt(44, 20);
+			}
+		}
+	}
+
+	&__cards {
+		--min: #{adapt(282, 166)};
+		--gap: 20px #{adapt(24, 8)};
+	}
+
+	&__card {
+	}
+}
+
+.customers-card {
+	display: flex;
+
+	&__wrapper-link {
+		text-decoration: none;
+		color: inherit;
+		@include flex-column;
+		align-items: start;
+		@include hover {
+			.customers-card__image {
+				img {
+					transform: scale(1.1);
+				}
+			}
+
+			.customers-card__btn {
+				&::after {
+					transform: translateX(4px);
+				}
+			}
+		}
+	}
+
+	&__image {
+		height: adapt(250, 150);
+		border-radius: 16px;
+		overflow: hidden;
+		width: 100%;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		img {
+			transition: all 0.3s;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__descr {
+		@include text-small;
+		color: var(--color-gray);
+		flex-grow: 1;
+
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	&__btn {
+		@include text-btn;
+		color: var(--color-dark-gray);
+		justify-content: start;
+		--width: 16px;
+		gap: 8px;
+
+		&::after {
+			transition: all 0.3s;
+		}
+	}
+}

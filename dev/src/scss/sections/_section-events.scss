@@ -1,0 +1,136 @@
+@use "../tools" as *;
+
+.section-events {
+	&__container {
+		@include flex-column;
+		gap: adapt(44, 24);
+	}
+
+	&__header {
+	}
+
+	&__swiper {
+		width: 100%;
+	}
+}
+
+.events-swiper {
+	margin-inline: -10px !important;
+	@include media($mobile) {
+		margin-inline: -4px !important;
+	}
+
+	&__wrapper {
+	}
+
+	&__slide {
+	}
+
+	&__pagination {
+	}
+}
+.event-card {
+	&__wrapper {
+		padding: 10px;
+		@include media($mobile) {
+			padding: 4px;
+		}
+	}
+	&__link {
+		@include reset-link;
+		@include flex-column;
+		padding: 10px;
+		transition: all 0.3s;
+		height: 100%;
+		align-items: flex-start;
+		@include hover {
+			transform: translateY(-8px);
+
+			.event-card__image {
+				img {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+	&__image {
+		height: 160px;
+		border-radius: 16px;
+		overflow: hidden;
+		width: 100%;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+		img {
+			transition: all 0.3s;
+		}
+	}
+
+	&__content {
+	}
+
+	&__date {
+		color: var(--color-gray);
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__badge {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+
+	&__brand {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__brand-logo {
+		@include flex-center;
+		border: 1px solid var(--color-gray-bd);
+		border-radius: 50%;
+		@include square(64px);
+		background: var(--color-white);
+		overflow: hidden;
+		--object-fit: contain;
+	}
+
+	&__brand-title {
+	}
+
+	&__tags {
+		@include reset-list;
+		display: flex;
+		gap: 8px;
+		flex-wrap: wrap;
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__tag {
+	}
+	&__btn {
+		justify-content: start;
+		margin-top: 10px;
+	}
+}
+.event-card {
+}

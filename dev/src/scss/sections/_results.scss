@@ -1,0 +1,84 @@
+@use "../tools" as *;
+
+.results {
+	&__container {
+	}
+
+	&__list {
+		@include reset-list;
+		display: grid;
+		gap: 24px;
+		grid-template-columns: repeat(12, 1fr);
+		@include media($tablet) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__item {
+		@include media($tablet, min) {
+			&:nth-child(6n + 1),
+			&:nth-child(6n + 5) {
+				grid-column: span 5;
+			}
+
+			&:nth-child(6n + 2),
+			&:nth-child(6n + 6) {
+				grid-column: span 3;
+			}
+
+			&:nth-child(6n + 3),
+			&:nth-child(6n + 4) {
+				grid-column: span 4;
+			}
+		}
+	}
+}
+.results-card {
+	position: relative;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	border-radius: 16px;
+	padding: adapt(20, 12) adapt(20, 10);
+	overflow: hidden;
+	@include flex-column;
+	justify-content: flex-end;
+	@include overlay(
+		linear-gradient(
+			90deg,
+			rgba(239, 236, 231, 0.8) 0%,
+			rgba(239, 236, 231, 0.8) 20%,
+			rgba(239, 236, 231, 0.8) 30%,
+			rgba(239, 236, 231, 0.4) 60%,
+			rgba(239, 236, 231, 0) 100%
+		),
+		1
+	) {
+		z-index: 1;
+	}
+	@include media($mobile, min) {
+		min-height: 230px;
+	}
+	&__image {
+		@include image-abs;
+		z-index: -1;
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 4px;
+		position: relative;
+		z-index: 2;
+		@include media($mobile, min) {
+			max-width: 200px;
+		}
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		color: var(--color-dark);
+	}
+}

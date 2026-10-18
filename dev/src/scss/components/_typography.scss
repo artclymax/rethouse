@@ -1,0 +1,47 @@
+@use "../tools" as *;
+//Typography
+.title,
+.title-1,
+.title-2,
+.title-3,
+.title-4,
+.title-5 {
+	@include reset;
+	//line-height: var(--line-height);
+}
+
+.title-1 {
+	@include title-1;
+}
+
+.title-2 {
+	@include title-2;
+}
+
+.title-3 {
+	@include title-3;
+}
+
+.title-4 {
+	//@include title-4;
+}
+
+.title-5 {
+	//@include title-5;
+}
+
+.label {
+	@include label;
+}
+.text-small {
+	@include text-small;
+}
+.text-btn {
+	@include text-btn;
+}
+.upcase {
+	text-transform: uppercase;
+}
+.t-center {
+	text-align: center !important;
+}

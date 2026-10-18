@@ -1,0 +1,58 @@
+@use "../tools" as *;
+
+.consultation-included {
+	margin-block: var(--section-padding-05);
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	border-radius: 60px;
+	@include media($mobile) {
+		padding-block: 10px;
+	}
+	&__container {
+	}
+
+	&__wrapper {
+		@include flex-column;
+		gap: adapt(44, 24, $mobile);
+		align-items: flex-start;
+		background: rgba(255, 255, 255, 0.9);
+		padding: adapt(54, 20);
+		@include media($mobile) {
+			border-radius: 54px;
+		}
+	}
+
+	&__list {
+		width: 100%;
+		gap: adapt(40, 24, $mobile);
+		--min: 140px;
+
+		@include media($mobile) {
+			gap: 12px 8px;
+		}
+	}
+
+	&__item {
+	}
+
+	&__image {
+		@include image-abs;
+
+		z-index: -1;
+		pointer-events: none;
+	}
+}
+.consultation-included-card {
+	@include flex-column;
+	gap: 8px;
+	&__icon {
+		@include square(54px);
+	}
+
+	&__title {
+		@include media($mobile) {
+			@include text-small;
+		}
+	}
+}

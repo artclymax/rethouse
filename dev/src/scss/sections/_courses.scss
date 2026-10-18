@@ -1,0 +1,142 @@
+@use "../tools" as *;
+
+.courses {
+	&__container {
+	}
+	.section-header {
+		&:not(:last-child) {
+			margin-bottom: adapt(44, 24);
+		}
+	}
+	&__tabs {
+	}
+
+	&__slider {
+		position: relative;
+		.hidden-slide {
+			display: none !important;
+		}
+	}
+
+	.event-card {
+		&__wrapper {
+		}
+
+		&__link {
+		}
+
+		&__image {
+		}
+
+		&__content {
+		}
+
+		&__brand {
+		}
+
+		&__brand-logo {
+		}
+
+		&__brand-title {
+		}
+
+		&__tags {
+		}
+
+		&__tag {
+		}
+
+		&__date {
+		}
+
+		&__title {
+		}
+
+		&__descr {
+		}
+
+		&__btn {
+		}
+	}
+}
+
+.events-swiper {
+	&__wrapper {
+	}
+
+	&__slide {
+	}
+
+	&__pagination {
+	}
+
+	&__btn {
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__prev {
+		left: -27px;
+		@include media($laptop-sm) {
+			left: 0;
+		}
+	}
+
+	&__next {
+		right: -27px;
+		@include media($laptop-sm) {
+			right: 0;
+		}
+	}
+}
+
+/* ==================== COURSES TABS ==================== */
+.courses-tabs {
+	@include reset-list;
+	display: flex;
+	gap: adapt(16, 10);
+	border-radius: 30px;
+	overflow-y: auto;
+	background: var(--color-white);
+	padding: adapt(16, 10);
+	&:not(:last-child) {
+		margin-bottom: adapt(24, 12);
+	}
+}
+
+.courses-tabs__item {
+	//display: flex;
+	//flex-wrap: wrap;
+	//gap: 12px;
+	flex-shrink: 0;
+}
+
+.courses-tabs__btn {
+	@include text-btn;
+	background: var(--color-0);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid var(--color-gray-bd);
+	border-radius: 60px;
+	padding: 16px adapt(32, 20);
+	text-align: center;
+	border-radius: 30px; /* Форма "пилюли" */
+	transition: all 0.3s ease;
+
+	@include media($tablet) {
+		@include text-small;
+	}
+
+	@include hover {
+		border-color: var(--color-yellow);
+	}
+}
+
+/* Активное состояние таба */
+.courses-tabs__btn.active {
+	border-color: var(--color-yellow);
+	background: var(--color-light-2);
+}

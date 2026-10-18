@@ -1,0 +1,203 @@
+@use "../tools" as *;
+
+.page-wishlist {
+	padding-bottom: var(--section-padding-05);
+	&__container {
+	}
+
+	&__stats {
+	}
+
+	&__filters {
+	}
+
+	&__products {
+	}
+}
+
+.wishlist-stats {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	&:not(:last-child) {
+		margin-bottom: adapt(32, 24);
+	}
+	@include media($mobile) {
+		flex-wrap: wrap;
+	}
+	&__list {
+		@include reset-list;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 20px;
+	}
+
+	&__item {
+		@include flex-column;
+		gap: 4px;
+		padding-block: 8px;
+		&:not(:last-child) {
+			padding-right: 20px;
+			border-right: 1px solid var(--color-gray-bd);
+		}
+	}
+
+	&__number {
+	}
+
+	&__label {
+		color: var(--color-gray);
+	}
+
+	&__actions {
+		@include media($mobile) {
+			width: 100%;
+		}
+	}
+
+	&__clear {
+		background: var(--color-light-2);
+	}
+}
+
+.wishlist-filters {
+	@include flex-column;
+	gap: adapt(16, 12);
+
+	padding: adapt(16, 10);
+	&:not(:last-child) {
+		margin-bottom: adapt(64, 32);
+	}
+	&__materials {
+		display: flex;
+		flex-shrink: 0;
+		overflow-x: auto;
+		gap: adapt(16, 10);
+		padding: 10px;
+		margin: -10px;
+	}
+
+	&__btn {
+		flex-shrink: 0;
+		@include text-small;
+		border: 1px solid var(--color-gray-bd);
+		border-radius: 60px;
+		padding: 16px 20px;
+		background: var(--color-0);
+		transition: all 0.3s;
+		&.active {
+			background: var(--color-light-2);
+			border-color: var(--color-yellow);
+		}
+
+		@include hover {
+			background: var(--color-light-2);
+			border-color: var(--color-yellow);
+			box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		}
+	}
+
+	&__controls {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+
+		@include media($mobile) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__sort {
+		flex: 0 1 220px;
+		@include media($mobile) {
+			flex: 1 1 100%;
+
+			.custom-select__select-field,
+			.custom-select__btn {
+				@include text-small;
+			}
+		}
+	}
+
+	&__select {
+	}
+
+	&__group {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		@include media($mobile) {
+			width: 100%;
+		}
+	}
+
+	&__group-label {
+		@include text-btn;
+
+		@include media($tablet) {
+			display: none;
+		}
+	}
+
+	&__group-btns {
+		border: 1px solid var(--color-input-bd);
+		overflow: hidden;
+		border-radius: 60px;
+		display: flex;
+		@include media($mobile) {
+			width: 100%;
+		}
+	}
+
+	&__group-btn {
+		@include text-btn;
+		flex-shrink: 0;
+		padding: 16px 20px;
+		border: 1px solid var(--color-0);
+		background: none;
+		border-radius: 60px;
+		overflow: hidden;
+		transition: all 0.3s;
+		@include media($mobile) {
+			@include text-small;
+			padding-inline: 16px;
+		}
+		&.active {
+			background: var(--color-dark-gray);
+			color: var(--color-light);
+		}
+	}
+}
+.card-box {
+}
+.active {
+}
+.form-select {
+}
+.wishlist-products {
+	&__grid {
+	}
+	&__group {
+		&:not(:last-child) {
+			margin-bottom: var(--section-padding-05);
+		}
+	}
+	&__group-title {
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
+}
+.products-grid {
+	--min: 180px;
+	gap: 24px;
+
+	@include media($mobile)  {
+		--min: 160px;
+		gap: 8px;
+	}
+	&__item {
+	}
+}

@@ -1,0 +1,44 @@
+@use "../tools" as *;
+
+.section-offers {
+
+	&__container {
+	}
+
+	&__list {
+		--min: #{adapt(384, 340)};
+		--gap: #{adapt(24, 12)};
+	}
+
+	&__item {
+	}
+}
+
+.offers-item {
+	background: var(--color-gray-bd);
+	border-radius: 16px;
+	padding: adapt(20, 10);
+
+	display: flex;
+	gap: 8px;
+
+	&__icon {
+		display: flex;
+		@include square(48px);
+		flex-shrink: 0;
+	}
+
+	&__content {
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+}
+

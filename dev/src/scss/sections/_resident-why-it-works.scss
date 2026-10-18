@@ -1,0 +1,74 @@
+@use "../tools" as *;
+
+.resident-why-it-works {
+ 	&__container {
+	}
+
+	&__list {
+		--min: 500px;
+		gap: 24px;
+
+		@include media($laptop-sm) {
+			--min: 400px;
+		}
+
+		@include media($tablet)  {
+			--min: 340px;
+		}
+	}
+}
+.resident-why-it-works-item {
+	padding: adapt(20, 10);
+	display: grid;
+	grid-template-columns: 1fr 1.1fr;
+	gap: 10px 20px;
+
+	@include media($tablet) {
+		grid-template-columns: 1fr;
+	}
+
+	&__image {
+		border-radius: 16px;
+		overflow: hidden;
+
+		@include media($tablet) {
+			height: 250px;
+		}
+		
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 16px;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		color: var(--color-gray);
+
+		ul {
+			--list-mark: url("../../../public/images/icons/list-mark-positive.svg");
+			.negative-list & {
+				--list-mark: url("../../../public/images/icons/list-mark-negative.svg");
+			}
+			@include reset-list;
+			@include flex-column;
+			gap: 12px;
+
+			li {
+				display: flex;
+				gap: 4px;
+				align-items: start;
+
+				&::before {
+					content: "";
+					flex-shrink: 0;
+					@include square(20px);
+					@include bgimg(var(--list-mark));
+				}
+			}
+		}
+	}
+}

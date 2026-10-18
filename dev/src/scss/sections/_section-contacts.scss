@@ -1,0 +1,47 @@
+@use "../tools" as *;
+
+.section-contacts {
+	position: relative;
+	border-radius: 60px;
+	overflow: hidden;
+	@include media($tablet, min) {
+		margin-top: var(--section-padding-05);
+	}
+	@include media($tablet) {
+		@include flex-column;
+		gap: 20px;
+		padding-bottom: unset;
+	}
+	&__container {
+		width: 100%;
+	}
+
+	&__box {
+		position: relative;
+		z-index: 2;
+		@include flex-column;
+		gap: adapt(20, 12);
+		padding: adapt(54, 20, $tablet);
+		border-radius: 30px;
+		background: var(--color-white);
+		@include media($tablet, min) {
+			max-width: 537px;
+		}
+	}
+
+	&__map {
+		@include media($tablet, min) {
+			@include image-abs;
+			z-index: 1;
+		}
+		@include media($tablet) {
+			border-radius: 60px;
+			overflow: hidden;
+			height: 420px;
+		}
+		iframe {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

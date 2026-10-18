@@ -1,0 +1,337 @@
+@use "../tools" as *;
+
+.form-wrapper {
+	display: grid;
+	gap: 20px;
+	align-items: start;
+}
+
+.form-wrapper > p {
+	@include reset;
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+	align-items: center;
+
+	.wpcf7-spinner {
+		@include reset;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	input[type="submit"],
+	input[type="button"] {
+		text-wrap: wrap;
+	}
+}
+.form-wrapper-grid {
+	& > p {
+		grid-template-columns: 1fr 1fr;
+
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+	[data-name="user_acceptance"],
+	.form-field-wide {
+		grid-column: 1 / -1;
+	}
+}
+.form-input {
+	border: 1px solid var(--color-input-bd);
+	border-radius: 60px;
+	padding: 16px 20px;
+	background: var(--color-0);
+	font-weight: 500;
+	width: 100%;
+	transition: all 0.3s;
+	&--small {
+		border-radius: 14px;
+		padding: 16px 8px;
+		font-size: 11px;
+	}
+	.form-wrapper--input-white & {
+		background: var(--color-white);
+	}
+	&::placeholder {
+		opacity: 0.9;
+	}
+
+	@include focus {
+		border-color: var(--color-yellow-hv);
+		box-shadow: 0 4px 4px 0 rgba(200, 169, 107, 0.08);
+	}
+
+	&.wpcf7-not-valid {
+		border-color: red;
+	}
+}
+
+.form-textarea {
+	resize: none;
+	height: 86px;
+	border-radius: 27px;
+}
+
+.form-btn {
+	@include reset;
+	background: var(--color-0);
+	border: none;
+	//flex-shrink: 0;
+	justify-self: start;
+}
+
+.form-field {
+	@include flex-column;
+	gap: 10px;
+
+	&__text {
+		//@include helper-text;
+		font-weight: 500;
+		//font-size: 14px;
+		//color: var(--color-dark);
+	}
+	&__input {
+	}
+}
+
+// VALID-TIP
+.wpcf7-form-control-wrap {
+	position: relative;
+}
+.wpcf7-not-valid-tip {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	transform: translateY(100%);
+	font-size: 14px;
+}
+
+// ACCEPTANCE
+.wpcf7-mailpoet_signup_consent,
+.wpcf7-acceptance {
+	* {
+		@include reset;
+	}
+
+	input {
+		display: none;
+	}
+	input:checked ~ .wpcf7-list-item-label {
+		.form-checkbox-icon {
+			background-color: var(--color-0);
+			//border-color: var(--color-accent);
+			.form-wrapper--input-white & {
+				background: var(--color-white);
+			}
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+	.wpcf7-list-item-label {
+		&::before,
+		&::after {
+			display: none;
+		}
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.form-checkbox-icon {
+		flex-shrink: 0;
+		@include flex-center;
+		@include square(20px);
+		border: 1px solid var(--color-input-bd);
+		border-radius: 2px;
+		background-color: var(--color-0);
+		overflow: hidden;
+		.form-wrapper--input-white & {
+			background: var(--color-white);
+		}
+		&::before {
+			content: "";
+			@include square(100%);
+			@include bgimg(url("../../../public/icons/check-icon.svg"));
+			transition: all 0.3s;
+			opacity: 0;
+		}
+	}
+
+	.form-checkbox-text {
+		@include text-small;
+
+		color: var(--color-gray);
+
+		a {
+			//text-decoration: none;
+			color: inherit;
+			transition: all 0.3s;
+			@include hover {
+				color: var(--color-dark);
+			}
+		}
+	}
+}
+
+//! CUSTOM FILE BTN
+.form-file {
+	display: none;
+}
+.file-label {
+	border: 1px dashed var(--color-input-bd);
+	padding: 12px 8px;
+	background: var(--color-light-bg);
+	display: inline-flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 6px;
+	border-radius: 14px;
+	font-weight: 500;
+	font-size: 10px;
+	&::after {
+		content: "";
+		flex-shrink: 0;
+		display: inline-flex;
+		@include square(18px);
+		@include bgimg(url("../../../public/images/icons/file-icon-2.svg"));
+	}
+	&__text {
+		display: none;
+	}
+	.wpcf7-form-control-wrap {
+		//display: none;
+	}
+}
+.file-text {
+	@include flex-column;
+	gap: 4px;
+	p {
+		@include reset;
+		@include flex-column;
+		gap: 4px;
+	}
+
+	span {
+		opacity: 0.4;
+	}
+
+	.title-font {
+		font-family: var(--font-family-title);
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 120%;
+		letter-spacing: 0.02em;
+		text-transform: uppercase;
+		opacity: 1;
+	}
+}
+
+.form-file-box {
+	border: 1px solid #f3f2f5;
+	border-radius: 10px;
+	padding: 16px 12px;
+	background: var(--color-gray-light);
+	align-items: start;
+	gap: 8px;
+	--width: 76px;
+	--icon-bg: url("../../../public/icons/docs-green.svg");
+	width: 100%;
+	margin-bottom: 12px;
+	@include media($mobile) {
+		margin-bottom: unset;
+		&::before {
+			display: none;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 12px;
+		width: 100%;
+	}
+	&__title {
+		@include media($mobile) {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+
+			&::before {
+				content: "";
+				flex-shrink: 0;
+				@include square(76px);
+				@include bgimg(var(--icon-bg));
+			}
+		}
+	}
+	&__text {
+		@include reset;
+		color: var(--color-gray-text);
+		max-width: 460px;
+		font-weight: 500;
+	}
+	&__btn-box > p {
+		@include reset;
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		flex-wrap: wrap;
+
+		@include media($mobile) {
+			& > * {
+				flex: 1 1 100%;
+			}
+		}
+	}
+
+	&__btn {
+		padding: 8px 24px;
+	}
+}
+
+.form-file-wrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	@include media($tablet) {
+		grid-template-columns: 1fr;
+	}
+	&__box {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr;
+		gap: 8px;
+	}
+}
+.form-field--file {
+	@include reset;
+	border: 1px solid var(--color-input-bd);
+	border-radius: 27px;
+	padding: 16px 20px;
+	background: var(--color-white);
+	align-items: start;
+}
+
+.air-datepicker-overlay.-active-,
+.air-datepicker.-is-mobile- {
+	z-index: 1000;
+}
+
+.form-input-hidden {
+	display: none;
+}
+
+.file-label--input {
+	border-radius: 60px;
+	@include text-btn;
+	padding: 16px 20px;
+	background: var(--color-0);
+	.file-label__note {
+		order: 3;
+		margin-left: auto;
+		font-size: 12px;
+		color: var(--color-input-bd);
+	}
+}

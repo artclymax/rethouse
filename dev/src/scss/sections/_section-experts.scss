@@ -1,0 +1,60 @@
+@use "../tools" as *;
+
+.section-experts {
+	&__container {
+	}
+
+	&__slider {
+		position: relative;
+	}
+}
+
+.experts-swiper {
+	&__wrapper {
+	}
+
+	&__slide {
+	}
+
+	&__btn {
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__prev {
+		left: -27px;
+		@include media($laptop-sm) {
+			left: 0;
+		}
+	}
+
+	&__next {
+		right: -27px;
+		@include media($laptop-sm) {
+			right: 0;
+		}
+	}
+
+	&__pagination {
+	}
+}
+
+.visit-benefits {
+	&__item {
+	}
+}
+.visit-benefits-item {
+	&__image {
+	}
+
+	&__content {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+}

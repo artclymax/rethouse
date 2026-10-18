@@ -1,0 +1,99 @@
+@use "../tools" as *;
+
+.cookie-banner {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: var(--color-white);
+	color: inherit;
+	z-index: 9999;
+	transition:
+		opacity 0.4s ease,
+		visibility 0.4s ease,
+		transform 0.4s ease;
+	//color: var(--color-text);
+	text-wrap: balance;
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	border-top: 1px solid #bfbfbf;
+	&.hide {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transform: translateY(100%);
+	}
+
+	&__container {
+		max-width: 1200px;
+		//border: 1px solid rgba(225, 195, 64, 0.4);
+		//background: var(--color-gray);
+		//margin-bottom: 10px;
+		padding-block: adapt(26, 10);
+		padding-inline: 10px;
+		display: flex;
+		gap: adapt(20, 16);
+		justify-content: space-between;
+		align-items: center;
+
+		@include media($tablet) {
+			flex-wrap: wrap;
+			margin-bottom: unset;
+		}
+	}
+
+	&__content {
+		//@include reset;
+		@include reset-child;
+		//font-family: var(--font-family-title);
+		//font-weight: 400;
+		font-size: rem(14);
+		flex: 1 1 740px;
+
+		a {
+			//text-decoration: none;
+			//color: var(--color-blue);
+			color: inherit;
+			transition: all 0.3s;
+			@include hover {
+				color: var(--color-accent-purple);
+			}
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		gap: adapt(20, 16);
+		//flex: 0 1 260px;
+		flex: 1 1 30%;
+		@include media($tablet, min) {
+			justify-content: flex-end;
+		}
+		@include media($mobile-sm) {
+			flex: 1 1 100%;
+			width: 100%;
+		}
+	}
+
+	&__btn {
+		width: 162px;
+		padding-block: 14px;
+	}
+
+	&__btn.btn {
+		padding-inline: 24px;
+		@include media($mobile-sm) {
+			flex: 1;
+			max-width: 100%;
+			min-width: initial;
+		}
+	}
+	&__btn.btn--stroke {
+		//color: var(--color-dark-2);
+		box-shadow: none;
+		@include hover {
+			//color: var(--color-white);
+		}
+	}
+}

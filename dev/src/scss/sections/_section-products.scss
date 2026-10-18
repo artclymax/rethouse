@@ -1,0 +1,103 @@
+@use "../tools" as *;
+
+.section-products {
+	&__container {
+	}
+
+	&__slider {
+		position: relative;
+		width: 100%;
+	}
+}
+
+.products {
+	&__wrapper-swiper {
+	}
+
+	&__pagination-swiper {
+	}
+
+	&__btn-swiper {
+		position: absolute;
+		z-index: 2;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&__btn-swiper-prev {
+		left: -27px;
+		@include media($laptop-sm) {
+			left: 0;
+		}
+	}
+
+	&__btn-swiper-next {
+		right: -27px;
+		@include media($laptop-sm) {
+			right: 0;
+		}
+	}
+}
+
+.products-slide {
+	&__wrapper {
+	}
+}
+
+.product-card {
+	@include flex-column;
+	gap: 8px;
+	align-items: flex-start;
+	&__image-box {
+		width: 100%;
+		position: relative;
+		border-radius: 16px;
+		overflow: hidden;
+
+		.custom-wishlist-remove-btn,
+		.woosw-btn {
+			@include reset-btn;
+			@include flex-center;
+			position: absolute;
+			z-index: 2;
+			top: 10px;
+			right: 10px;
+			@include square(28px);
+			border-radius: 50%;
+			background: var(--color-white);
+			color: var(--color-input-bd);
+			&.woosw-added {
+				color: var(--color-yellow);
+			}
+		}
+		.custom-wishlist-remove-btn {
+			color: var(--color-yellow);
+		}
+	}
+	&__image {
+		@include flex-column;
+		height: 160px;
+		width: 100%;
+		img {
+			transition: all 0.3s;
+		}
+		@include hover {
+			img {
+				transform: scale(1.1);
+			}
+		}
+	}
+	&__brand {
+		color: var(--color-gray);
+	}
+
+	&__material {
+	}
+
+	&__title {
+	}
+
+	&__sku {
+		color: var(--color-gray);
+	}
+}

@@ -1,0 +1,335 @@
+@use "../tools" as *;
+@use "icon" as *;
+
+@mixin btn {
+	--bg-icon: url("../../../public/images/icons/arrow-link.svg");
+
+	@include reset;
+	text-decoration: none;
+	border: none;
+	background: transparent;
+	overflow: hidden;
+	position: relative;
+
+	//=======================
+
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.3s;
+	gap: 8px;
+
+	//=======================
+	@include text-btn;
+	text-align: center;
+	color: var(--color-light);
+	background: var(--color-dark-gray);
+	border: 1px solid var(--color-dark-gray);
+	border-radius: 60px;
+	padding: 16px 30px;
+
+	//max-width: 387px;
+	//width: 100%;
+	&::after {
+		content: "";
+		@include square(16px);
+		@include bgimg(var(--bg-icon));
+		transition: all 0.3s;
+	}
+	@include hover {
+		//transform: translateY(-2px);
+		background: var(--color-dark-gray-hv);
+		//color: var(--color-light);
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		&::after {
+			transform: translateX(2px);
+		}
+	}
+
+	@include media($mobile-sm) {
+		width: 100%;
+	}
+}
+
+.btn {
+	@include btn;
+	&--light,
+	&--stroke {
+		--bg-icon: url("../../../public/images/icons/arrow-link-gray.svg");
+		background: var(--color-0);
+		color: var(--color-dark-gray);
+		border-color: var(--color-yellow);
+		@include hover {
+			background: var(--color-0);
+
+			//background: var(--color-light-hover);
+		}
+	}
+	&--stroke-gray {
+		border-color: var(--color-dark-gray);
+	}
+	&--icon-remove {
+		--bg-icon: url("../../../public/images/icons/remove-icon.svg");
+		@include hover {
+			&::after {
+				transform: initial;
+			}
+		}
+	}
+
+	&--accent {
+		background: var(--color-yellow);
+		border-color: var(--color-yellow);
+		color: var(--color-dark);
+		@include hover {
+			background: var(--color-yellow-hv);
+		}
+	}
+
+	&--no-icon {
+		&::after {
+			display: none;
+		}
+	}
+}
+//.catalog-btn {
+//	--icon-bg: url("../../../public/images/icons/catalog-btn.svg");
+//	@include media($tablet) {
+//		display: none !important;
+//	}
+//}
+
+//.search-toggle {
+//	border: none;
+//	background: var(--color-0);
+//	//border: 1px solid var(--color-stroke);
+//	//border-radius: 8px;
+//	//background: var(--color-white);
+//	padding: 10px;
+
+//	&__open-icon {
+//		color: var(--color-blue);
+//		@include square(20px);
+//	}
+
+//	&__close-icon {
+//		display: none;
+//		@include square(20px);
+//	}
+//}
+
+.phone-btn {
+	@include reset;
+	background: transparent;
+	border: none;
+	@include square(32px);
+	border: 1px solid var(--color-yellow);
+	background: var(--color-0);
+	border-radius: 8px;
+	padding: 6px;
+	flex-shrink: 0;
+	color: var(--color-gray-wishlist);
+	transition: all 0.3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	//.home & {
+	//	//color: var(--color-white);
+	//}
+	svg {
+		transition: all 0.3s;
+	}
+	@include media($tablet, min) {
+		display: none;
+	}
+	.open-phone-box & {
+		svg {
+			transform: rotate(90deg);
+		}
+		//background: var(--color-light-blue);
+	}
+}
+
+.burger-btn {
+	@include reset;
+	background: transparent;
+	border: none;
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 5px;
+	position: relative;
+	@include square(32px);
+	border: 1px solid var(--color-yellow);
+	background: var(--color-0);
+	border-radius: 8px;
+
+	@include media($tablet, min) {
+		display: none;
+	}
+	.open-header-menu & {
+	}
+	span {
+		.open-header-menu & {
+			width: 0;
+		}
+	}
+	span,
+	&::before,
+	&::after {
+		width: 50%;
+		background: var(--color-gray-wishlist);
+		height: 1.5px;
+		border-radius: 4px;
+		transition: all 0.3s;
+		.open-header-menu & {
+			//background: var(--color-dark-2);
+		}
+		.home & {
+			//background: var(--color-white);
+		}
+	}
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		z-index: 3;
+		top: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		.open-header-menu & {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%) rotate(45deg);
+		}
+	}
+	&::after {
+		top: unset;
+		bottom: 10px;
+
+		.open-header-menu & {
+			position: absolute;
+			bottom: unset;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%) rotate(-45deg);
+		}
+	}
+}
+.link {
+	@include reset;
+	background: transparent;
+	border: none;
+	text-align: left;
+	display: inline-flex;
+	text-decoration: none;
+	color: inherit;
+	transition: all 0.3s;
+	font-family: inherit;
+	@include hover-link;
+}
+
+.link-icon {
+	display: inline-flex;
+	@include hover-icon;
+}
+
+// menu-mobile-2
+
+//.menu-close-btn {
+//	flex-shrink: 0;
+//	@include reset-btn;
+//	@include square(44px);
+//	@include flex-center;
+//}
+//.header-mobile-btn {
+//	@include reset;
+//	@include square(44px);
+//	@include flex-center;
+//	border: none;
+//	background: var(--color-0);
+//	//border-radius: 6px;
+//	color: var(--color-accent-accent-600);
+//}
+/*
+.link-arrow {
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-weight: 700;
+	font-size: 14px;
+	color: var(--color-blue);
+	transition: all 0.3s;
+
+	&::after {
+		content: "";
+		@include square(14px);
+		@include bgimg(url("../../../public/images/icons/arrow-link.svg"));
+		transition: all 0.3s;
+	}
+
+	@include hover {
+		color: var(--color-light-blue);
+		&::after {
+			transform: translateX(4px);
+		}
+	}
+}
+
+.link-arrow--back {
+	font-size: 12px;
+	font-weight: 400;
+	color: var(--color-gray);
+	&::after {
+		display: none;
+	}
+	&::before {
+		content: "";
+		@include square(14px);
+		@include bgimg(url("../../../public/images/icons/arrow-link-gray.svg"));
+		transition: all 0.3s;
+	}
+	@include hover {
+		color: var(--color-light-blue);
+		&::before {
+			transform: translateX(-4px);
+		}
+	}
+}
+*/
+
+.link-arrow {
+	position: relative;
+	align-self: start;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	//font-weight: 500;
+	//font-size: 16px;
+	line-height: 140%;
+	//color: inherit;
+	text-decoration: none;
+	transition: all 0.3s;
+	@include hover {
+		color: var(--color-accent-purple-hv);
+
+		&::after {
+			transform: translateX(4px);
+		}
+	}
+	&::after {
+		content: "";
+		//position: absolute;
+		flex-shrink: 0;
+		@include square(16px);
+		@include bgimg(url("../../../public/images/icons/arrow-link-accent.svg"));
+		transition: all 0.3s;
+	}
+}

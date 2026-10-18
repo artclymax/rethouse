@@ -1,0 +1,45 @@
+@use "../tools" as *;
+
+.page-wishlist-empty {
+	padding-bottom: var(--section-padding);
+	&__container {
+	}
+
+	&__wrapper {
+		padding: adapt(16, 10);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 24px adapt(44, 24);
+		border-radius: 30px;
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: adapt(348, 200);
+		border-radius: 30px;
+		overflow: hidden;
+	}
+
+	&__content {
+		max-width: 486px;
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__descr {
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+	}
+
+	&__btn {
+	}
+}

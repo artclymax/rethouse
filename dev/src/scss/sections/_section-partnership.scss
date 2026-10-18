@@ -1,0 +1,67 @@
+@use "../tools" as *;
+
+.section-partnership {
+	&__container {
+	}
+
+	&__list {
+		--min: #{adapt(588, 340)};
+		--gap: 24px;
+	}
+
+	&__item {
+	}
+}
+
+.partnership-card {
+	--bg-gradient: linear-gradient(
+		90deg,
+		rgba(239, 236, 231, 0.8) 0%,
+		rgba(239, 236, 231, 0.8) 20%,
+		rgba(239, 236, 231, 0.64) 30%,
+		rgba(239, 236, 231, 0.16) 60%,
+		rgba(239, 236, 231, 0) 100%
+	);
+	position: relative;
+	@include overlay(var(--bg-gradient), 0.8);
+	padding: 20px adapt(20, 10);
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+
+	display: flex;
+
+	&__image {
+		@include abs-cover;
+		z-index: -1;
+
+		@include overlay(#efece7, 0.5);
+	}
+
+	&__content {
+		position: relative;
+		z-index: 1;
+
+		@include flex-column;
+		gap: 20px;
+		flex-grow: 1;
+	}
+
+	&__label {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		flex-grow: 1;
+	}
+
+	&__btn {
+		align-self: flex-start;
+
+		@include media($mobile) {
+			align-self: normal;
+		}
+	}
+}

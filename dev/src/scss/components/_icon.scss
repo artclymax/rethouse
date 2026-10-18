@@ -1,0 +1,112 @@
+@use "../tools" as *;
+
+.icon {
+	--width: 20px;
+	--height: var(--width);
+	--bg-size: contain;
+	--bg-color: var(--color-0);
+
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+
+	&::before {
+		content: "";
+		flex-shrink: 0;
+		//margin-top: 6px;
+		width: var(--width);
+		height: var(--height);
+		background-position: center;
+		background-size: var(--bg-size);
+		background-repeat: no-repeat;
+		background-color: var(--bg-color);
+		background-image: var(--icon-bg);
+	}
+
+	&--after {
+		&::before {
+			display: none;
+		}
+		&::after {
+			content: "";
+			flex-shrink: 0;
+			width: var(--width);
+			height: var(--height);
+			background-position: center;
+			background-size: var(--bg-size);
+			background-repeat: no-repeat;
+			background-image: var(--icon-bg);
+			background-color: var(--bg-color);
+		}
+	}
+}
+
+.icon--filter {
+	--icon-bg: url("../../../public/icons/filter.svg");
+}
+.icon--address {
+	--icon-bg: url("../../../public/icons/address.svg");
+}
+.icon--email {
+	--icon-bg: url("../../../public/icons/email.svg");
+}
+.icon--phone {
+	--icon-bg: url("../../../public/icons/phone.svg");
+}
+.icon--time {
+	--icon-bg: url("../../../public/icons/time.svg");
+}
+.icon--logo {
+	--icon-bg: url("../../../public/icons/logo.svg");
+}
+.icon--address-accent {
+	--icon-bg: url("../../../public/icons/address-accent.svg");
+}
+.icon--phone-accent {
+	--icon-bg: url("../../../public/icons/phone-accent.svg");
+}
+
+.icon--mail-accent {
+	--icon-bg: url("../../../public/icons/mail-accent.svg");
+}
+.icon--time-accent {
+	--icon-bg: url("../../../public/icons/time-accent.svg");
+}
+.icon--arrow-right{
+	--icon-bg: url("../../../public/icons/arrow-right.svg");
+}
+
+.icon--list {
+	--icon-bg: url("../../../public/icons/list.svg");
+}
+
+.icon--website {
+	--icon-bg: url("../../../public/icons/website.svg");
+}
+
+.icon--social {
+	--icon-bg: url("../../../public/icons/social.svg");
+}
+
+.icon--list {
+	--icon-bg: url("../../../public/icons/list.svg");
+}
+
+.icon--calendar {
+	--icon-bg: url("../../../public/icons/calendar.svg");
+}
+.icon--clock {
+	--icon-bg: url("../../../public/icons/clock.svg");
+}
+.icon--format {
+	--icon-bg: url("../../../public/icons/format.svg");
+}
+.icon--location {
+	--icon-bg: url("../../../public/icons/location.svg");
+}
+.icon--price {
+	--icon-bg: url("../../../public/icons/price.svg");
+}
+.icon--check-list {
+	--icon-bg: url("../../../public/icons/check-list.svg");
+}

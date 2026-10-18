@@ -1,0 +1,118 @@
+@use "../tools" as *;
+
+.cookie-banner {
+	text-wrap: balance;
+	color: inherit;
+
+	position: fixed;
+	z-index: 9999;
+	bottom: 0px;
+	left: 50%;
+	transform: translateY(0) translateX(-50%);
+
+	max-width: 1178px;
+	width: 100%;
+	background: var(--color-white);
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	padding: 10px adapt(30, 10);
+	border-radius: 30px;
+
+	transition:
+		opacity 0.4s ease,
+		visibility 0.4s ease,
+		transform 0.4s ease;
+	opacity: 1;
+	visibility: visible;
+
+	&.hide {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		transform: translateY(100%) translateX(0%);
+	}
+
+	&__container {
+		display: flex;
+		gap: adapt(24, 20);
+		justify-content: space-between;
+		align-items: center;
+
+		@include media($tablet) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: adapt(16, 12);
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		@include square(44px);
+	}
+
+	&__content {
+		@include reset-child;
+		@include text-small;
+		a {
+			text-decoration: none;
+			//color: var(--color-blue);
+			color: var(--color-gray);
+			position: relative;
+			display: inline-flex;
+			transition: all 0.3s;
+			padding-bottom: 2px;
+
+			&::after {
+				content: "";
+				width: 100%;
+				height: 1px;
+				position: absolute;
+				left: 0;
+				width: 100%;
+				bottom: 0;
+				background: var(--color-yellow);
+			}
+			@include hover {
+				color: var(--color-dark);
+			}
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		gap: adapt(20, 16);
+		//flex: 0 1 260px;
+		//flex: 1 1 30%;
+		flex-shrink: 0;
+		@include media($tablet, min) {
+			justify-content: flex-end;
+		}
+		@include media($mobile-sm) {
+			flex: 1 1 100%;
+			width: 100%;
+		}
+	}
+
+	&__btn {
+		width: 162px;
+		padding-block: 14px;
+	}
+
+	&__btn.btn {
+		padding-inline: 24px;
+		@include media($mobile-sm) {
+			flex: 1;
+			max-width: 100%;
+			min-width: initial;
+		}
+	}
+	&__btn.btn--stroke {
+		//color: var(--color-dark-2);
+		@include hover {
+			//color: var(--color-white);
+		}
+	}
+}

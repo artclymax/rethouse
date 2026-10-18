@@ -1,0 +1,435 @@
+@use "../tools" as *;
+@use "../components/btn" as *;
+.catalog-page {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 2.1fr;
+		gap: 44px 24px;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+	.header-bar {
+		grid-column: 1 / -1;
+	}
+}
+// ==== HEADER BAR ===
+.header-bar {
+	display: grid;
+	grid-template-columns: 1fr 260px;
+	gap: 24px;
+	@include media($mobile) {
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.search-form-residents {
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+		&__wrapper {
+			display: flex;
+			position: relative;
+			align-items: center;
+			border: 1px solid var(--color-input-bd);
+			border-radius: 60px;
+			overflow: hidden;
+		}
+	}
+	.search-submit {
+		@include reset-btn;
+		flex-shrink: 0;
+		//position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		font-size: 0;
+		@include square(44px);
+		padding-right: 4px;
+		transition: all 0.3s;
+
+		@include hover {
+			opacity: 0.8;
+		}
+		&::before {
+			content: "";
+			@include square(18px);
+			@include bgimg(url("../../../public/images/icons/search.svg"), 18px);
+			padding-left: 10px;
+		}
+	}
+	.search-input {
+		display: flex;
+		width: 100%;
+		padding: 16px;
+		padding-left: 4px;
+		background-color: var(--color-0);
+		border: none;
+		border-radius: 0px 60px 60px 0;
+		overflow: hidden;
+	}
+	.resident-sort-wrapper {
+		select {
+			display: none;
+		}
+	}
+	.resident-sort-form {
+	}
+	.sort-select {
+	}
+	.filter-mobile-btn {
+		@include text-btn;
+		border: 1px solid var(--color-input-bd);
+		border-radius: 60px;
+		padding: 16px 20px;
+		background: var(--color-0);
+		display: flex;
+		align-items: center;
+		gap: 21px;
+		&::after {
+			content: "";
+			flex-shrink: 0;
+			@include square(16px);
+			border-radius: 50%;
+			background-color: var(--color-0);
+			@include bgimg(url("../../../public/icons/select-icon.svg"), 16px);
+			transition: all 0.3s;
+
+			.custom-select-active & {
+				transform: rotate(180deg);
+			}
+		}
+		@include media($mobile, min) {
+			display: none;
+		}
+	}
+	.residents-counter {
+		flex: 1 1 100%;
+		margin-top: 6px;
+		@include media($mobile, min) {
+			display: none;
+		}
+	}
+}
+
+// ==== RESIDENTS COUNTER ===
+.residents-counter {
+	&__text {
+		@include reset;
+	}
+}
+.residents-count--empty {
+}
+
+// === Filter
+.filter {
+	@include flex-column;
+	gap: 20px;
+	padding-right: 20px;
+	border-right: 1px solid var(--color-gray-bd);
+	@include media($mobile) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100dvh;
+		padding: 10px;
+		background: var(--color-light-bg);
+		z-index: 70;
+		overflow-y: auto;
+		transform: translateX(-100%);
+		visibility: hidden;
+		opacity: 0;
+		pointer-events: none;
+		transition: all 0.3s;
+
+		.open-filter-menu & {
+			transform: translateX(0);
+			visibility: visible;
+			opacity: 1;
+			pointer-events: all;
+		}
+		.admin-bar & {
+			top: var(--wp-admin--admin-bar--height);
+			height: calc(100dvh - var(--wp-admin--admin-bar--height));
+		}
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.filter-close-btn {
+		@include reset-btn;
+		@include square(32px);
+		border-radius: 8px;
+		border: 1px solid var(--color-yellow);
+		@include flex-center;
+		@include media($mobile, min) {
+			display: none;
+		}
+	}
+	.residents-counter {
+		@include media($mobile) {
+			//display: none;
+		}
+	}
+	&__widget {
+	}
+
+	.wpc-filters-widget-wrapper {
+		@include flex-column;
+		gap: 20px;
+	}
+	.wpc-filter-selected-values {
+		display: none;
+	}
+	.wpc-filters-section {
+		@include flex-column;
+		gap: 16px;
+		@include reset;
+		&:not(:last-child) {
+			padding-bottom: 20px;
+			border-bottom: 1px solid var(--color-gray-bd);
+		}
+	}
+
+	.wpc-filter-title {
+		@include title-3;
+	}
+
+	.wpc-filter-collapsible .wpc-filter-title .wpc-open-icon,
+	.wpc-filter-collapsible-reverse.wpc-filter-collapsible.wpc-closed .wpc-filter-title .wpc-open-icon,
+	.wpc-filter-collapsible.wpc-closed .wpc-filter-title .wpc-open-icon,
+	.wpc-filter-has-selected.wpc-closed .wpc-filter-title .wpc-open-icon {
+		border-left: 1px solid var(--color-dark);
+		border-top: 1px solid var(--color-dark);
+	}
+
+	.wpc-filters-ul-list {
+		@include reset-list;
+		@include flex-column;
+		gap: 12px;
+	}
+	li.wpc-term-item {
+		margin: unset !important;
+	}
+	.wpc-term-item-content-wrapper {
+		display: flex;
+
+		input {
+			display: none;
+		}
+
+		input:checked + label::before {
+			opacity: 1;
+		}
+
+		label {
+			display: flex;
+			padding-left: 28px;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				@include square(20px);
+
+				@include bgimg(url("../../../public/images/icons/check-gray.svg"));
+				opacity: 0;
+			}
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				@include square(20px);
+				border: 1px solid var(--color-input-bd);
+				border-radius: 2px;
+			}
+
+			a {
+				@include reset-link;
+			}
+		}
+	}
+	a.wpc-toggle-a {
+		@include text-btn;
+		color: inherit;
+		border-bottom-style: solid;
+	}
+
+	.wpc-sticky-buttons {
+		position: relative !important;
+		top: 0 !important;
+		bottom: 0 !important;
+		left: 0 !important;
+		width: 100% !important;
+		padding: unset;
+		@include flex-column;
+		gap: 12px;
+		background: var(--color-0);
+		max-width: 253px;
+		width: 100%;
+
+		@include media($mobile) {
+			max-width: 100%;
+		}
+	}
+	.wpc-sticky-placeholder {
+		display: none !important;
+	}
+	.wpc-filters-submit-button,
+	.wpc-filters-reset-button {
+		width: 100% !important;
+		border-radius: 60px !important;
+		padding: 16px 40px !important;
+		background: var(--color-yellow) !important;
+		border-color: var(--color-yellow) !important;
+		color: var(--color-dark) !important;
+		justify-content: center !important;
+		display: flex !important;
+		align-items: center;
+		gap: 8px;
+		font-weight: 500 !important;
+		font-size: 16px !important;
+		transition: all 0.3s;
+
+		@include hover {
+			opacity: 0.8;
+		}
+	}
+
+	.wpc-filters-reset-button {
+		background: var(--color-0) !important;
+		border-color: var(--color-input-bd) !important;
+		&::after {
+			content: "";
+			@include square(16px);
+			@include bgimg(url("../../../public/images/icons/close.svg"));
+		}
+	}
+
+	.wpc-filters-main-wrap li.wpc-term-item label,
+	.wpc-filters-main-wrap li.wpc-term-item label a {
+		opacity: 1 !important;
+	}
+
+	.wpc-term-count-0:not(.wpc-has-not-empty-children) a,
+	.widget-area .widget .wpc-term-count-0:not(.wpc-has-not-empty-children) a,
+	.widget-area .wpc-filters-labels li.wpc-term-count-0:not(.wpc-has-not-empty-children) label,
+	.widget-area
+		.wpc-filters-labels
+		li.wpc-term-count-0:not(.wpc-has-not-empty-children)
+		label
+		span.wpc-filter-label-wrapper,
+	.wpc-filters-labels li.wpc-term-count-0:not(.wpc-has-not-empty-children) label,
+	.wpc-filters-labels li.wpc-term-count-0:not(.wpc-has-not-empty-children) label span.wpc-filter-label-wrapper,
+	.wpc-term-count-0:not(.wpc-has-not-empty-children),
+	.wpc-term-count-0:not(.wpc-has-not-empty-children) a,
+	body .wpc-filters-main-wrap li.wpc-term-count-0:not(.wpc-has-not-empty-children) label,
+	body .wpc-filters-main-wrap li.wpc-term-count-0:not(.wpc-has-not-empty-children) label a {
+		opacity: 1 !important;
+	}
+}
+
+// === Catalog Grid ===
+.catalog-grid {
+	@include flex-column;
+	gap: 44px;
+	justify-content: space-between;
+	&__list {
+		gap: 24px;
+		--min: 180px;
+
+		@include media($mobile-sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__item {
+	}
+
+	&__pagination {
+		display: flex;
+		justify-content: center;
+	}
+}
+// === Catalog Card Grid ===
+.catalog-card-grid {
+	&__link-wrapper {
+		@include reset-link;
+		@include flex-column;
+
+		@include hover {
+			.catalog-card-grid__image {
+				img {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+
+	&__image {
+		height: 160px;
+		border-radius: 16px;
+		overflow: hidden;
+
+		img {
+			transition: all 0.3s;
+		}
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__descr {
+		color: var(--color-gray);
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	&__link {
+		@include text-btn;
+		justify-content: start;
+	}
+}
+// === Page Pagination ===
+.page-pagination {
+	&__btn {
+	}
+
+	&__next {
+	}
+}
+
+.catalog-grid-not-found {
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	&__descr {
+		&:not(:last-child) {
+			margin-bottom: 24px;
+		}
+	}
+
+	&__btn {
+	}
+}

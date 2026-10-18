@@ -1,0 +1,90 @@
+@use "../tools" as *;
+
+.section-faq {
+	&__container {
+	}
+
+	&__header {
+		display: flex;
+		align-items: flex-end;
+		gap: 24px;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	&__all-link {
+	}
+
+	&__wrapper {
+		display: grid;
+		gap: adapt(44, 24, $tablet);
+		@include media($mobile, min) {
+			grid-template-columns: 1fr 2fr;
+		}
+	}
+
+	&__image {
+		border-radius: 16px;
+		overflow: hidden;
+		height: 500px;
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 12px;
+	}
+}
+
+.faq-item {
+	background: var(--color-light-3);
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	border-radius: 20px;
+	&__btn {
+		@include reset-btn;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		justify-content: space-between;
+		padding: 20px;
+	}
+
+	&__title {
+	}
+
+	&__icon {
+		@include square(28px);
+		flex-shrink: 0;
+		position: relative;
+
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			height: 2px;
+			width: 100%;
+			background: var(--color-gray);
+			border-radius: 4px;
+			transition: all 0.3s;
+		}
+		&::before {
+			transform: translateY(-50%) rotate(90deg);
+
+			.spoiler-active & {
+				transform: translateY(-50%) rotate(180deg);
+			}
+		}
+	}
+
+	&__content {
+	}
+
+	&__descr {
+		padding: 20px;
+		padding-top: 0;
+		margin-right: 68px;
+	}
+}

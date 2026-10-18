@@ -1,0 +1,136 @@
+@use "../tools" as *;
+
+.course-programs-and-results {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 44px adapt(44, 24, $tablet);
+		align-items: start;
+
+		@include media($tablet) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__results,
+	&__programs {
+		@include flex-column;
+		gap: 24px;
+	}
+}
+
+.course-results {
+	align-items: start;
+	&__card {
+		padding: adapt(20, 10) adapt(32, 10);
+		@include flex-column;
+		gap: 20px;
+		width: 100%;
+	}
+
+	&__header {
+		@include flex-column;
+		gap: adapt(20, 10);
+	}
+
+	&__label {
+	}
+
+	&__title {
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 12px;
+
+		&:not(:last-child) {
+			padding-bottom: 20px;
+			border-bottom: 1px solid var(--color-light-bg);
+		}
+	}
+
+	&__item {
+		gap: 8px;
+		--width: 20px;
+	}
+
+	&__price {
+		--width: 32px;
+		gap: 16px;
+	}
+
+	&__price-box {
+		@include flex-column;
+	}
+
+	&__price-label {
+	}
+
+	&__price-value {
+		color: var(--color-gray);
+	}
+
+	&__btn {
+	}
+}
+.course-programs {
+	&__header {
+	}
+
+	&__label {
+	}
+
+	&__title {
+	}
+
+	&__list {
+		@include reset-list;
+		@include flex-column;
+		gap: 12px;
+	}
+
+	&__item {
+	}
+}
+.program-card {
+	display: grid;
+	grid-template-columns: adapt(50, 35) 1fr 0.5fr;
+	gap: 12px 20px;
+	align-items: center;
+	padding: adapt(20, 10);
+
+	@include media($mobile) {
+		grid-template-columns: adapt(50, 35) 1fr;
+		align-items: start;
+	}
+
+	&__number {
+		color: var(--color-input-bg, #909092);
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 4px;
+	}
+
+	&__title {
+		@include reset;
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+
+	&__image {
+		height: 94px;
+		width: 100%;
+		border-radius: 16px;
+		overflow: hidden;
+
+		@include media($mobile) {
+			height: 150px;
+			grid-column: 1 / -1;
+		}
+	}
+}

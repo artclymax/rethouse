@@ -1,0 +1,56 @@
+@use "../tools" as *;
+
+.events-cta {
+	&__container {
+	}
+
+	&__wrapper {
+		position: relative;
+		padding: adapt(54, 20) adapt(54, 10);
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px adapt(64, 24, $tablet);
+		align-items: start;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__address {
+		font-style: normal;
+		@include text-btn;
+		gap: 8px;
+		--width: 32px;
+		color: var(--color-gray);
+	}
+
+	&__address-descr {
+	}
+
+	&__form {
+		.btn {
+			grid-column: 1 / -1;
+		}
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+		border-radius: adapt(60, 30);
+		overflow: hidden;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	}
+}

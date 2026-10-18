@@ -1,0 +1,49 @@
+@use "../tools" as *;
+
+.about-place {
+	&__container {
+		display: grid;
+		align-items: center;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px adapt(44, 24, $tablet);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__image {
+		border-radius: 80px;
+		overflow: hidden;
+		width: 100%;
+		height: adapt(400, 255);
+		
+		@include media($mobile) {
+			order: 2;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 20px;
+	}
+
+	&__label {
+	}
+
+	&__title {
+	}
+
+	&__address {
+		--width: 32px;
+		gap: 8px;
+	}
+
+	&__address-descr {
+		@include text-btn;
+		font-style: normal;
+	}
+
+	&__descr {
+	}
+}

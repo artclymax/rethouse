@@ -1,0 +1,46 @@
+@use "../tools" as *;
+
+.resident-form {
+	padding-bottom: var(--section-padding);
+	&__container {
+	}
+
+	&__wrapper {
+		position: relative;
+		--gradient: linear-gradient(
+			190.14deg,
+			rgba(253, 250, 246, 0.8) 19.38%,
+			rgba(253, 250, 246, 0.6) 49.67%,
+			rgba(253, 250, 246, 0) 73.98%
+		);
+		padding: adapt(54, 20) adapt(54, 10);
+		border-radius: adapt(60, 30);
+		overflow: hidden;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		@include overlay(var(--gradient), 1);
+
+		@include media($mobile) {
+			@include overlay(var(--color-light-2), 0.8);
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 2;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px adapt(64, 24, $tablet);
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__form {
+	}
+
+	&__image {
+		@include image-abs;
+		z-index: -1;
+	}
+}

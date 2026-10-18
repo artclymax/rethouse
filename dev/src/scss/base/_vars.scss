@@ -1,0 +1,58 @@
+@use "../tools" as *;
+
+:root {
+	--color-0: rgba(0, 0, 0, 0);
+	--color-black: #000;
+	--color-white: #fff;
+
+	// ===== Colors ======
+	--color-light: #f2f2f2;
+	--color-light-2: #fdfaf6;
+	--color-light-3: #fefdfd;
+	--color-light-bg: #f6f5f1;
+	--color-light-bg-light: #fffcf9;
+	--color-dark: #171511;
+	--color-dark-text: #0b0f12;
+	--color-dark-gray: #2f3542;
+	--color-dark-gray-hv: #47494e;
+	--color-yellow: #fae013;
+	--color-yellow-hv: #fade00;
+	--color-gray: #6b6f76;
+	--color-gray-wishlist: #4a4a4c;
+	--color-gray-bd: #e8e7e2;
+	--color-input-bd: #909092;
+
+	--bg-gradient:
+		linear-gradient(
+			90deg,
+			rgba(239, 236, 231, 0.8) 0%,
+			rgba(239, 236, 231, 0.8) 20%,
+			rgba(239, 236, 231, 0.64) 30%,
+			rgba(239, 236, 231, 0.16) 60%,
+			rgba(239, 236, 231, 0) 100%
+		),
+		rgba(239, 236, 231, 0.5);
+
+	// ===== Layouts =====
+	--header-height: 148px;
+
+	@include media($mobile) {
+		--header-height: 96px;
+	}
+
+	--section-padding: #{adapt(112, 56)};
+	--section-padding-05: #{adapt(56, 28)};
+
+	--container-width: 1200px;
+	--container-padding: 10px;
+
+	// ===== Fonts =====
+	--font-size-html: 100%;
+	--font-size: 16px;
+
+	--font-family-main: "Manrope-VF", "Manrope", sans-serif;
+	--font-family-secondary: "Geologica-VF", "Geologica", sans-serif;
+
+	--line-height: 140%;
+	--letter-spacing: normal;
+}

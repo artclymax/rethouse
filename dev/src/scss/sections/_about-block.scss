@@ -1,0 +1,129 @@
+@use "../tools" as *;
+
+.about-block {
+	padding-top: 0;
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 24px;
+
+		@include media($mobile) {
+			flex-direction: column;
+			align-items: normal;
+		}
+
+		.section-header {
+			flex: 0 1 calc(50% - 12px);
+
+			&__descr {
+				p {
+					font-weight: 500;
+
+					strong {
+						font-weight: 600;
+					}
+				}
+
+				ul {
+					@include reset-list;
+					@include flex-column;
+					gap: 8px;
+
+					li {
+						position: relative;
+						padding-left: 32px;
+
+						&::before {
+							content: "";
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%);
+							left: 0;
+							width: 24px;
+							height: 24px;
+							background: url("public/icons/checkmark.svg");
+							background-repeat: no-repeat;
+							background-position: center;
+							background-size: contain;
+						}
+
+						strong {
+							font-weight: 500;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__cards {
+		@include reset-list;
+		flex: 0 1 calc(50% - 12px);
+
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+
+		@include media($mobile) {
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
+		@include media($mobile-sm) {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+	}
+
+	&__card {
+	}
+
+	&__col {
+		@include flex-column;
+		gap: adapt(16, 10);
+	}
+
+	&__list-title {
+		
+	}
+}
+
+.about-block-card {
+	padding: adapt(20, 10) adapt(24, 10);
+	@include flex-column;
+	gap: 12px;
+
+	@include media($mobile) {
+		border-top: unset;
+		border-inline: unset;
+	}
+
+	@include media($mobile-sm) {
+		flex-direction: row;
+	}
+
+	&__icon {
+		@include square(54px);
+		display: flex;
+		flex-shrink: 0;
+	}
+
+	&__content {
+	}
+
+	&__title {
+		@include text-btn;
+		color: var(--color-dark);
+
+		&:not(:last-child) {
+			margin-bottom: 4px;
+		}
+	}
+
+	&__descr {
+		@include text-small;
+		color: var(--color-gray);
+	}
+}

@@ -1,0 +1,94 @@
+@use "../tools" as *;
+
+.course-cta {
+	&__container {
+	}
+
+	&__body {
+		position: relative;
+		border-radius: adapt(60, 30);
+		overflow: hidden;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		padding: adapt(54, 20) adapt(54, 10);
+
+		display: flex;
+		gap: 32px 64px;
+
+		@include media($tablet) {
+			flex-direction: column;
+		}
+
+		.course-details__list {
+			padding: adapt(24, 12) adapt(24, 3);
+			grid-template-columns: repeat(2, 1fr);
+			gap: adapt(20, 16) 0;
+			flex: 0 1 42%;
+			align-self: flex-start;
+
+			@include media($tablet) {
+				align-self: normal;
+			}
+
+			.course-details-item {
+				gap: adapt(16, 4);
+
+				&:nth-child(even) {
+					&::after {
+						display: none;
+					}
+
+					padding-right: 0;
+				}
+
+				&:nth-child(odd) {
+					padding-left: 0;
+				}
+
+				&__icon {
+				}
+
+				&__content {
+				}
+
+				&__title {
+				}
+
+				&__descr {
+				}
+			}
+		}
+	}
+
+	&__content {
+		flex: 0 1 45%;
+
+		.section-header {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
+
+			&__title {
+				text-wrap: balance;
+			}
+		}
+	}
+
+	&__btn {
+		@include media($mobile) {
+			width: 100%;
+		}
+	}
+
+	&__image {
+		--bg-gradient: linear-gradient(
+			190.14deg,
+			rgba(253, 250, 246, 0.8) 22.96%,
+			rgba(253, 250, 246, 0.6) 50.37%,
+			rgba(253, 250, 246, 0) 72.37%
+		);
+
+		@include image-abs;
+		z-index: -1;
+		@include overlay(var(--bg-gradient), 1);
+	}
+}

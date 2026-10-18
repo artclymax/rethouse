@@ -1,0 +1,73 @@
+@use "../tools" as *;
+
+.events-header-bar {
+	&:not(:last-child) {
+		margin-bottom: adapt(44, 24);
+	}
+	&__wrapper {
+		border-radius: 30px;
+		padding: 16px;
+		background: var(--color-white);
+		@include flex-column;
+		gap: adapt(16, 12);
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	}
+
+	&__tabs {
+	}
+
+	&__controls {
+		display: flex;
+		align-items: center;
+		gap: 12px 24px;
+
+		@include media($mobile) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__search {
+		flex-grow: 1;
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	&__sort {
+		flex: 0 1 220px;
+		@include media($mobile) {
+			flex: 1 1 100%;
+		}
+	}
+
+	.courses-tabs {
+		padding: unset;
+		border-radius: unset;
+		background: var(--color-0);
+		margin-bottom: unset;
+		padding-bottom: 10px;
+		margin-bottom: -10px;
+
+		&__item {
+		}
+
+		&__btn {
+			@include reset-link;
+		}
+	}
+}
+
+.controls-bar {
+}
+.search-bar {
+	&__btn {
+	}
+
+	&__input {
+	}
+}
+
+.events-archive {
+	&__select {
+	}
+}

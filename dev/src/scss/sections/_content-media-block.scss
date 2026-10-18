@@ -1,0 +1,20 @@
+@use "../tools" as *;
+
+.content-media-block {
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px adapt(44, 24, $tablet);
+		align-items: center;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__image {
+		border-radius: adapt(80, 60);
+		height: adapt(400, 234);
+		overflow: hidden;
+	}
+}

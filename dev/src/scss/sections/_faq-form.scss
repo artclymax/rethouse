@@ -1,0 +1,41 @@
+@use "../tools" as *;
+
+.faq-form {
+	margin-block: var(--section-padding-05);
+	&__wrapper {
+		position: relative;
+		padding: adapt(54, 20) adapt(54, 10);
+
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px adapt(64, 24, $tablet);
+		align-items: start;
+
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 20px;
+	}
+	&__image {
+		@include image-abs;
+		z-index: -1;
+		border-radius: adapt(60, 30);
+		overflow: hidden;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	}
+	&__container {
+	}
+
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__form {
+	}
+}

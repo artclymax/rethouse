@@ -1,0 +1,103 @@
+@use "../tools" as *;
+
+.footer {
+	border-top: 1px solid var(--color-gray-bd);
+	padding-block: 48px;
+
+	&__container {
+		@include flex-column;
+		gap: 32px;
+	}
+
+	&__top {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1.5fr 1.5fr;
+		gap: 32px adapt(64, 32, $tablet);
+
+		@include media($laptop-sm) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__info {
+		@include flex-column;
+		gap: 16px;
+	}
+
+	&__logo {
+		width: 130px;
+	}
+
+	&__descr {
+		max-width: 340px;
+		* {
+			@include label;
+			color: var(--color-gray);
+		}
+	}
+
+	&__menu {
+	}
+
+	&__bottom {
+		@include text-small;
+		color: var(--color-dark-gray);
+		border-top: 1px solid var(--color-dark-gray);
+		padding-top: 32px;
+
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 20px 24px;
+	}
+
+	&__copy {
+	}
+
+	&__links {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 20px 24px;
+	}
+
+	&__link {
+	}
+}
+
+.footer-col {
+	@include flex-column;
+	gap: 16px;
+	&__title {
+	}
+
+	&__descr {
+	}
+
+	&__form {
+	}
+
+	&__note {
+		color: var(--color-gray);
+	}
+}
+
+.footer-menu {
+	@include reset-list;
+	display: grid;
+	align-items: start;
+	gap: 12px;
+	@include media($mobile) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	a {
+		@include hover-link;
+	}
+}
+
+.subscribe-form {
+}

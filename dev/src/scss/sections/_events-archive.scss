@@ -1,0 +1,60 @@
+@use "../tools" as *;
+
+.events-archive {
+	padding-bottom: var(--section-padding-05);
+	
+	&__container {
+	}
+
+	&__list {
+		gap: adapt(24, 16) adapt(24, 8);
+		--min: 280px;
+
+		@include media($tablet) {
+			--min: 200px;
+		}
+		@include media($mobile) {
+			--min: 160px;
+		}
+	}
+
+	&__pagination {
+		margin-top: 44px;
+	}
+
+	&__no-results {
+	}
+
+	.event-card {
+		&__wrapper {
+			padding: unset;
+			height: 100%;
+		}
+
+		&__link {
+			height: 100%;
+		}
+
+		&__image {
+			height: 110px;
+		}
+
+		&__date {
+		}
+
+		&__badge {
+		}
+
+		&__title {
+		}
+
+		&__descr {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			line-clamp: 2; // обрезает 2 строки
+			-webkit-line-clamp: 2; // обрезает 2 строки
+			-webkit-box-orient: vertical;
+		}
+	}
+}

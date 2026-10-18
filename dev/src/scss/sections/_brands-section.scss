@@ -1,0 +1,98 @@
+@use "../tools" as *;
+
+.brands-section {
+	padding-top: var(--section-padding);
+
+	&__container {
+	}
+
+	&__content {
+		@include flex-column;
+		gap: adapt(32, 20);
+	}
+
+	&__btn-box {
+		@include flex-column;
+		gap: 16px;
+		@include media($mobile, min) {
+			max-width: 314px;
+		}
+	}
+
+	&__btn {
+	}
+
+	&__grid {
+		position: relative;
+		gap: 0;
+		--min: 250px;
+		border: 1px solid var(--color-light-bg);
+		overflow: hidden;
+		margin-left: adapt(20, 0, $tablet);
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 1.5px;
+			background: var(--color-light-bg);
+		}
+
+		@include media($mobile) {
+			--min: 160px;
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				top: 0;
+				right: 0;
+				width: 1px;
+				background: var(--color-gray-bd);
+			}
+		}
+	}
+
+	&__card {
+	}
+}
+
+.brands-card {
+	border: 1px solid var(--color-gray-bd);
+	margin-top: -1px;
+	margin-right: -1px;
+
+	&__link-wrapper {
+		@include reset-link;
+		@include flex-column;
+		gap: 12px;
+		padding: 20px adapt(20, 6, $tablet);
+		text-align: center;
+		align-items: center;
+		transition: all 0.3s;
+		background: var(--color-light-bg);
+		height: 100%;
+		@include hover {
+			transform: translateY(-6px);
+		}
+	}
+
+	&__logo {
+		height: 47px;
+		width: 100%;
+		--object-fit: contain;
+	}
+
+	&__content {
+		@include flex-column;
+		gap: 4px;
+		align-items: center;
+	}
+
+	&__title {
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+}

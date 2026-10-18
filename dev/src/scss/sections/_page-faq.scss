@@ -1,0 +1,87 @@
+@use "../tools" as *;
+/* ==================== FAQ TABS ==================== */
+
+.faq-tabs {
+}
+
+.faq-tabs__list {
+}
+
+.faq-tabs__btn {
+}
+
+.faq-tabs__btn:hover {
+}
+
+.faq-tabs__btn.active {
+}
+
+/* Панели контента */
+.faq-tab-panel {
+	display: none;
+}
+
+.faq-tab-panel.active {
+	display: block;
+}
+
+//!=========
+.page-faq {
+	&__container {
+	}
+	&__wrapper {
+	}
+}
+.page--faq {
+}
+.section-gap {
+}
+.faq-tabs {
+	&__list {
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+	}
+
+	&__item {
+	}
+
+	&__btn {
+	}
+
+	&__content {
+	}
+}
+.courses-tabs {
+	&__item {
+	}
+
+	&__btn {
+	}
+}
+.faq-tab-panel {
+}
+.section-faq {
+	&__wrapper {
+	}
+
+	&__image {
+	}
+
+	&__list {
+	}
+}
+.faq-item {
+	&__btn {
+	}
+
+	&__title {
+	}
+
+	&__icon {
+	}
+
+	&__content {
+	}
+
+	&__descr {
+	}
+}

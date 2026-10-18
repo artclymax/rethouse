@@ -1,0 +1,104 @@
+@use "../tools" as *;
+
+.section-about {
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		align-items: center;
+		@include media($mobile) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__content {
+		@include flex-column;
+		align-items: flex-start;
+	}
+	.section-header {
+		&:not(:last-child) {
+			margin-bottom: adapt(20, 12);
+		}
+	}
+	&__blockquote {
+		@include reset;
+		--width: 44px;
+		gap: 8px;
+		color: var(--color-gray);
+		&:not(:last-child) {
+			margin-bottom: adapt(32, 24);
+		}
+	}
+	&__descr {
+		max-width: 342px;
+	}
+	&__btn {
+	}
+
+	&__image-wrapper {
+		min-height: adapt(537, 469, $mobile);
+		overflow: hidden;
+		position: relative;
+		border-radius: 60px;
+		padding: 24px;
+	}
+
+	&__image {
+		@include image-abs;
+	}
+
+	&__founder {
+	}
+}
+
+.about-founder {
+	display: grid;
+	align-items: end;
+	width: 100%;
+	&__image {
+		height: 100%;
+		min-height: adapt(488, 324, $mobile);
+		width: adapt(367, 244, $mobile);
+		border-radius: 30px;
+		overflow: hidden;
+		border: 1px solid var(--color-light-bg);
+		grid-row: 1;
+		grid-column: 1;
+		justify-self: end;
+		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.4);
+		@include media($mobile) {
+			border-radius: 52px;
+		}
+	}
+
+	&__content {
+		max-width: 280px;
+		width: 100%;
+		grid-row: 1;
+		grid-column: 1;
+		position: relative;
+		z-index: 2;
+		justify-self: start;
+		margin-left: 26px;
+		margin-bottom: 16px;
+		padding: 10px;
+		@include flex-column;
+		gap: 8px;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+		background: var(--color-white);
+
+		@include media($mobile) {
+			margin-left: 0;
+			margin-right: 32px;
+			justify-self: end;
+			margin-bottom: -76px;
+		}
+	}
+
+	&__name {
+	}
+
+	&__descr {
+		color: var(--color-gray);
+	}
+}

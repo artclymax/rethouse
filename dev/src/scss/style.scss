@@ -1,0 +1,150 @@
+@use "tools/constants" as *;
+@use "tools/functions" as *;
+@use "tools/mixins" as *;
+@use "tools/mixins-typography" as *;
+
+// LIBS
+@use "base/normalize";
+////@use "../../node_modules/ion-rangeslider/css/ion.rangeSlider.min.css";
+////@use "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css";
+
+// BASE
+////@use "base/fonts";
+@use "base/vars";
+@use "base/resets";
+@use "base/global";
+@use "base/utils";
+////@use "base/_components.scss";
+
+// COMPONENTS
+@use "components/_logo.scss";
+@use "components/_btn.scss";
+@use "components/_icon.scss";
+@use "components/_typography.scss";
+@use "components/_grid.scss";
+@use "components/_header-menu.scss";
+@use "components/_swiper.scss";
+@use "components/_form.scss";
+@use "components/_custom-select.scss";
+//@use "components/_cf-select.scss";
+//@use "components/_running-line.scss";
+@use "components/_scroll-to-top.scss";
+@use "components/_modal.scss";
+//@use "components/_tabs.scss";
+@use "components/_cookie-banner-new.scss";
+//@use "components/_cookie-banner-2.scss";
+@use "components/_navxt_breadcrumbs.scss";
+//@use "components/_wp-block.scss";
+@use "components/_pagination.scss";
+//@use "components/_hero-404.scss";
+//@use "components/_hero-page.scss";
+//@use "components/_category.scss";
+//@use "components/_map-scroll-lock.scss";
+//@use "components/_table.scss";
+//@use "components/_footer-menu.scss";
+//@use "components/_form-input.scss";
+//@use "components/_phone-box.scss";
+//@use "components/_swiper-components.scss";
+//@use "components/_theme-switcher.scss";
+//@use "components/_mega-menu.scss";
+//@use "components/_mega-menu-2.scss";
+//@use "components/_quiz.scss";
+//@use "components/_select-from-acf.scss";
+
+//! === для интернет-магазина + header возьми
+//@use "components/_aws-search.scss";
+//@use "components/_bottom-menu.scss";
+//@use "components/_catalog-menu.scss";
+
+// SECTIONS
+@use "sections/_components.scss";
+@use "sections/_contacts-box.scss";
+@use "sections/_section-header.scss";
+@use "sections/_header.scss";
+@use "sections/_footer.scss";
+
+// home
+@use "sections/_hero.scss";
+@use "sections/_section-catalog.scss";
+@use "sections/_cta-section.scss";
+@use "sections/_brands-section.scss";
+@use "sections/_section-consult.scss";
+@use "sections/_section-events.scss";
+@use "sections/_section-about.scss";
+@use "sections/_section-contacts.scss";
+
+// SHOP
+@use "sections/_shop-category.scss";
+@use "sections/_catalog-page.scss";
+@use "sections/_catalog-cta.scss";
+
+
+// SINGLE RESIDENT
+@use "sections/_section-products.scss";
+@use "sections/_about-media.scss";
+@use "sections/_section-gallery.scss";
+@use "sections/_resident-contacts.scss";
+@use "sections/_other-residents.scss";
+@use "sections/_resident-form.scss";
+
+// WISHLIST
+@use "sections/_page-wishlist.scss";
+@use "sections/_page-wishlist-empty.scss";
+@use "sections/_wishlist-cta-section.scss";
+
+// about
+@use "sections/_about-block.scss";
+@use "sections/_about-customers.scss";
+
+@use "sections/_resident-why-it-works.scss";
+@use "sections/_for-whom.scss";
+@use "sections/_resident-why.scss";
+@use "sections/_resident-brands.scss";
+@use "sections/_resident-cta.scss";
+@use "sections/_category-section.scss";
+@use "sections/_clients-order.scss";
+@use "sections/_visit-benefits.scss";
+@use "sections/_simple-process.scss";
+
+// designer-consultation
+@use "sections/_consultation-included.scss";
+@use "sections/_results.scss";
+@use "sections/_section-experts.scss";
+@use "sections/_section-faq.scss";
+@use "sections/_consultation-form.scss";
+
+// education-career
+@use "sections/_section-offers.scss";
+@use "sections/_courses.scss";
+@use "sections/_section-partnership.scss";
+@use "sections/_course-details.scss";
+@use "sections/_course-audience.scss";
+@use "sections/_course-programs-and-results.scss";
+@use "sections/_course-cta.scss";
+
+// events
+@use "sections/_events-header-bar.scss";
+@use "sections/_featured-news.scss";
+@use "sections/_events-archive.scss";
+@use "sections/_content-media-block.scss";
+@use "sections/_events-cards.scss";
+@use "sections/_about-place.scss";
+@use "sections/_events-cta.scss";
+
+// faq
+@use "sections/_page-faq.scss";
+@use "sections/_faq-form.scss";
+
+// reviews
+@use "sections/_reviews-archive.scss";
+
+// contacts
+@use "sections/_contacts-page.scss";
+@use "sections/_my-filters.scss";
+
+#wpadminbar {
+	position: fixed;
+}
+//* {
+//	outline: 1px solid red;
+//}
